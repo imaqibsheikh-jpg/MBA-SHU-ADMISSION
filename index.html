@@ -1,3 +1,4 @@
+<!doctype html><html><head><meta charset=utf8><meta name=viewport content="width=device-width,initial-scale=1"><style>:root{color-scheme:light}body{margin:0;padding:0;font:14px -apple-system,BlinkMacSystemFont,sans-serif;background:#fff;color:#000}img{max-width:100%}[hidden]:not([hidden=until-found i]){display:none!important}</style></head><body>
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -10,6 +11,7 @@
 
     <!-- PWA Manifest & Meta Tags -->
     <meta name="theme-color" content="#990000">
+    <script>document.documentElement.classList.add("js");</script>
     <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22SHU%20Business%20Programs%20Dashboard%22%2C%22short_name%22%3A%22SHU%20Admissions%22%2C%22start_url%22%3A%22.%2Findex.html%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23f4f7f6%22%2C%22theme_color%22%3A%22%23990000%22%7D">
 
     <style>
@@ -18,8 +20,8 @@
             --primary-dark: #7d0000;
             --secondary: #004b87;
             --secondary-dark: #003366;
-            --accent: #c9a24b;
-            --accent-soft: #fbf4e0;
+            --accent: #111111;
+            --accent-soft: #f1f1f1;
             --bg-color: #f5f7fa;
             --text-color: #1b2635;
             --muted: #566579;
@@ -53,17 +55,11 @@
         header {
             background: linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
             color: var(--secondary-dark);
-            padding: 38px 20px 34px;
+            padding: 26px 20px 24px;
             text-align: center;
             position: relative;
-            border-top: 8px solid var(--primary);
             border-bottom: 1px solid var(--border);
             box-shadow: 0 6px 22px rgba(15, 23, 42, .06);
-        }
-        header::before {
-            content: ""; display: block; width: 64px; height: 4px; margin: 0 auto 18px;
-            background: linear-gradient(90deg, var(--primary) 0 45%, var(--accent) 45% 70%, var(--secondary) 70%);
-            border-radius: 4px;
         }
         header::after {
             content: ""; position: absolute; left: 0; right: 0; bottom: -1px; height: 3px;
@@ -217,12 +213,12 @@
         }
         .total-fee-box::before {
             content: ""; position: absolute; inset: 0;
-            background: radial-gradient(320px 130px at 92% -30%, rgba(201, 162, 75, .35), transparent 70%);
+            background: radial-gradient(320px 130px at 92% -30%, rgba(255, 255, 255, .14), transparent 70%);
             pointer-events: none;
         }
 
         /* ---------- Grids & lists ---------- */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(290px, 1fr)); gap: 18px; }
+        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(290px, 100%), 1fr)); gap: 18px; }
 
         .semester-box {
             background: #fff; border: 1px solid var(--border); border-top: 3px solid var(--accent);
@@ -237,7 +233,7 @@
             border-bottom: 1px solid var(--border); padding-bottom: 10px;
         }
         .info-list { list-style: none; }
-        .info-list li { margin-bottom: 9px; padding-left: 22px; position: relative; font-size: 13.5px; line-height: 1.55; }
+        .info-list li { overflow-wrap: anywhere; margin-bottom: 9px; padding-left: 22px; position: relative; font-size: 13.5px; line-height: 1.55; }
         .info-list li::before { content: "✓"; color: var(--primary); position: absolute; left: 0; font-weight: 700; }
         .semester-box .info-list li {
             display: flex; justify-content: space-between; align-items: flex-start; gap: 10px;
@@ -252,7 +248,7 @@
             padding: 1px 9px; border-radius: 4px;
             line-height: 1.7; letter-spacing: .02em;
         }
-        .cr-badge.practical { color: #7a5200; background: var(--accent-soft); border-color: #ecd9a4; }
+        .cr-badge.practical { color: #111111; background: #f1f1f1; border-color: #cfcfcf; }
 
         .elective-rule-box {
             background: #f0f6fd; border: 1px solid #c8dcf3; border-left: 4px solid var(--secondary);
@@ -336,7 +332,7 @@
         .track-close-btn:hover { background: #dde5ef; }
         .track-close-btn:active { transform: scale(.95); }
         .track-course-note { font-size: 12.5px; color: #445b73; margin-bottom: 12px; font-style: italic; }
-        .track-course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(250px, 1fr)); gap: 9px; list-style: none; }
+        .track-course-grid { display: grid; grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr)); gap: 9px; list-style: none; }
         .track-course-grid li {
             background: #fff; border: 1px solid #e4ecf5; padding: 9px 12px 9px 28px;
             border-radius: 6px; font-size: 13px; position: relative; color: #1e3246;
@@ -384,15 +380,54 @@
         .whatsapp-btn:focus-visible { outline-color: rgba(30, 190, 87, .6); outline-offset: 4px; border-radius: 8px; }
 
         .rate-banner {
-            background: var(--accent-soft); border: 1px solid #ecd9a4; border-left: 4px solid var(--accent);
+            background: var(--accent-soft); border: 1px solid #cfcfcf; border-left: 4px solid var(--accent);
             padding: 9px 15px; border-radius: 6px; font-size: 13.5px; font-weight: 600;
-            color: #5c4300; margin-bottom: 16px; display: inline-block;
+            color: #111111; margin-bottom: 16px; display: inline-block;
             font-variant-numeric: tabular-nums;
         }
 
         ol { font-variant-numeric: tabular-nums; }
 
+        /* ---------- Mobile ---------- */
+        @media (max-width: 600px) {
+            .container { padding: 14px 12px; }
+            header { padding: 20px 14px 18px; }
+            header h1 { font-size: 26px; }
+            header p { font-size: 11px; letter-spacing: .08em; line-height: 1.5; padding: 0; }
+            .sticky-indicator { font-size: 12px; padding: 8px 10px; gap: 6px; flex-wrap: wrap; }
+            .sticky-indicator span { font-size: 12.5px; }
+            .tab-container { margin: 10px auto 22px; }
+            .tab-btn { padding: 12px 16px; font-size: 14px; min-width: 0; }
+            .section-title { font-size: 21px; margin-bottom: 16px; padding-bottom: 10px; }
+            .card { padding: 18px 14px; margin-bottom: 20px; }
+            .card h3 { font-size: 19px; margin-bottom: 14px; }
+            .sub-heading { font-size: 17px; margin-top: 24px; padding-top: 16px; }
+            .semester-box { padding: 14px; }
+            .semester-title { font-size: 15.5px; }
+            .info-list li { font-size: 13px; }
+            .spec-badge { font-size: 12.5px; padding: 9px 12px; }
+            .track-courses-panel-box { padding: 14px; }
+            .track-panel-header { flex-wrap: wrap; }
+            .track-panel-title { font-size: 15px; }
+            .transcript-toggle-btn { width: 100%; justify-content: space-between; text-align: left; }
+            .fee-item-header { font-size: 15px; }
+            .total-fee-box { padding: 18px 12px; font-size: 17px; }
+            .schedule-box { padding: 12px 14px; font-size: 13.5px; }
+            .action-buttons-wrap { gap: 12px; margin: 26px auto; }
+            .apply-btn, .whatsapp-btn { padding: 15px 16px; font-size: 15px; }
+        }
+
+        /* ---------- Scroll reveal (slide up + fade in) ---------- */
+        .js .reveal {
+            opacity: 0;
+            transform: translateY(38px);
+            transition: opacity .75s var(--ease), transform .75s var(--ease);
+            will-change: opacity, transform;
+        }
+        .js .reveal.in-view { opacity: 1; transform: none; }
+
         @media (prefers-reduced-motion: reduce) {
+            .js .reveal { opacity: 1; transform: none; transition: none; }
             html { scroll-behavior: auto; }
             *, *::before, *::after { animation-duration: .01ms !important; transition-duration: .01ms !important; }
         }
@@ -402,7 +437,7 @@
 
     <header>
         <h1>Salim Habib University</h1>
-        <p>Department of Business Administration | Admissions Dashboard</p>
+        <p>MBA Weekend Programs | Admissions Dashboard</p>
     </header>
 
     <!-- Sticky Floating Indicator Bar -->
@@ -486,7 +521,7 @@
                     </div>
                 </div>
 
-                <h4 class="sub-heading">🌟 Specialization Tracks Offered:</h4>
+                <h4 class="sub-heading">Specialization Tracks Offered:</h4>
                 <p class="spec-hint">Tap on any specialization track below to view its relevant courses:</p>
                 <div class="specialization-container" id="tracks-bba25"></div>
                 <div class="drawer" id="panel-bba25">
@@ -568,7 +603,7 @@
                 <!-- Collapsible Note Button placed right after the Curriculum Scheme -->
                 <div class="transcript-toggle-wrap">
                     <button type="button" class="transcript-toggle-btn" id="btn-transcript-mba15" aria-expanded="false" aria-controls="box-transcript-mba15" onclick="toggleTranscriptNote()">
-                        📌 Note on Prior BBA Transcript &amp; Deficiency Courses <span class="chevron">▼</span>
+                        Note on Prior BBA Transcript &amp; Deficiency Courses <span class="chevron">▼</span>
                     </button>
                     <div class="drawer" id="drawer-transcript-mba15">
                         <div class="drawer-inner">
@@ -579,7 +614,7 @@
                     </div>
                 </div>
 
-                <h4 class="sub-heading">🌟 Specialization Tracks Offered:</h4>
+                <h4 class="sub-heading">Specialization Tracks Offered:</h4>
                 <div class="elective-rule-box">
                     <strong>Electives Rule (4 Electives):</strong> Out of the 4 electives in the program, taking <strong>at least 1 course from Compulsory Electives (AI)</strong> is mandatory, and the <strong>remaining 3 electives</strong> can be chosen from your specialization tracks.
                 </div>
@@ -669,7 +704,7 @@
                     </div>
                 </div>
 
-                <h4 class="sub-heading">🌟 Specialization Tracks Offered:</h4>
+                <h4 class="sub-heading">Specialization Tracks Offered:</h4>
                 <div class="elective-rule-box">
                     <strong>Electives Rule (4 Electives):</strong> Out of the 4 electives in the program, taking <strong>at least 1 course from Compulsory Electives (AI)</strong> is mandatory, and the <strong>remaining 3 electives</strong> can be chosen from your specialization tracks.
                 </div>
@@ -718,7 +753,7 @@
 
         <!-- Academic Eligibility Criteria Section -->
         <div class="card">
-            <h3>🎓 Academic Eligibility Criteria</h3>
+            <h3>Academic Eligibility Criteria</h3>
             <ul class="info-list" style="margin-top: 10px;">
                 <li><b>MBA (1.5 Years - For Business Graduates):</b> 16 years of education or a 4-year Bachelor's degree in a business-related field (such as BBA) with a minimum of 50% marks or a 2.0 CGPA. (Additional deficiency courses may apply if prior BBA coursework had fewer or non-matching courses, to be determined after reviewing the BBA transcript.)</li>
                 <li><b>MBA (2 Years - For Non-Business Graduates):</b> 16 years of education or a 4-year Bachelor's degree in any non-business discipline with a minimum of 50% marks or a 2.0 CGPA.</li>
@@ -728,7 +763,7 @@
 
         <!-- Class Schedule Section -->
         <div class="card">
-            <h3>📅 Class Schedule (Weekend Classes)</h3>
+            <h3>Class Schedule (Weekend Classes)</h3>
             <p style="margin-bottom: 15px; font-size: 13.5px; color: var(--muted);">Classes are conducted on weekends to facilitate working professionals.</p>
             <div class="schedule-box"><strong>Saturday</strong>Class 1: 3:00 PM – 6:00 PM<br>Class 2: 6:00 PM – 9:00 PM</div>
             <div class="schedule-box"><strong>Sunday</strong>Class 1: 9:00 AM – 12:00 PM<br>Class 2: 12:00 PM – 3:00 PM<br>Class 3: 3:00 PM – 6:00 PM</div>
@@ -736,7 +771,7 @@
 
         <!-- Scholarships & Admissions Section -->
         <div class="card">
-            <h3>🎓 Scholarships & Admissions</h3>
+            <h3>Scholarships & Admissions</h3>
             <h4 style="color: var(--secondary-dark); margin: 15px 0 10px 0;">Existing SHU Students Scholarship:</h4>
             <ul class="info-list" style="margin-bottom: 20px;">
                 <li>SGPA 3.8 and above: <b>100% of Tuition Fee</b></li>
@@ -756,7 +791,7 @@
                 📝 Apply Online Now
             </a>
             <a href="https://wa.me/923404887565?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20inquire%20about%20Salim%20Habib%20University%20Business%20Admissions." class="whatsapp-btn" target="_blank" rel="noopener">
-                💬 Contact on WhatsApp (0340-4887565)
+                WhatsApp (0340-4887565)
             </a>
         </div>
 
@@ -1171,7 +1206,7 @@
             activeTracks[programKey] = idx;
 
             const track = trackData[programKey][idx];
-            titleEl.textContent = `📚 ${track.name} — Courses Offered`;
+            titleEl.textContent = `${track.name} — Courses Offered`;
             noteEl.textContent = track.note || "";
             listEl.innerHTML = track.courses
                 .map((c, i) => `<li style="animation-delay:${i * 35}ms">${c}</li>`)
@@ -1221,6 +1256,35 @@
             window.scrollTo({ top: 120, behavior: 'smooth' });
         }
 
+
+        // Scroll reveal: content slides up and fades in as it enters the viewport
+        (function () {
+            const targets = document.querySelectorAll(
+                ".section-title, .card, .semester-box, .fee-item-card, .schedule-box, .total-fee-box, .tab-container, .action-buttons-wrap"
+            );
+            const run = (el, delay) => {
+                el.style.transitionDelay = delay + "ms";
+                el.classList.add("in-view");
+                // hand the element back to its normal hover/transition styles once the reveal is done
+                setTimeout(() => {
+                    el.classList.remove("reveal", "in-view");
+                    el.style.transitionDelay = "";
+                }, 750 + delay + 120);
+            };
+            if (!("IntersectionObserver" in window)) return;
+            const io = new IntersectionObserver((entries) => {
+                entries.forEach(entry => {
+                    if (!entry.isIntersecting) return;
+                    const el = entry.target;
+                    io.unobserve(el);
+                    const siblings = el.parentElement ? Array.from(el.parentElement.children).filter(c => c.classList.contains("reveal") || c === el) : [el];
+                    const idx = Math.max(0, siblings.indexOf(el));
+                    run(el, Math.min(idx, 5) * 80);
+                });
+            }, { threshold: 0.12, rootMargin: "0px 0px -6% 0px" });
+            targets.forEach(el => { el.classList.add("reveal"); io.observe(el); });
+        })();
+
         // Register Service Worker for Offline / PWA Support
         if ('serviceWorker' in navigator) {
             const swCode = `
@@ -1247,3 +1311,5 @@
 
 </body>
 </html>
+
+</body></html>
