@@ -1,1140 +1,1402 @@
 <!DOCTYPE html>
 <html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Programs & Admissions | Salim Habib University</title>
-    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
-    
-    <!-- PWA Manifest & Meta Tags -->
-    <meta name="theme-color" content="#990000">
-    <link rel="manifest" href="data:application/manifest+json;charset=utf-8,%7B%22name%22%3A%22SHU%20Business%20Programs%20Dashboard%22%2C%22short_name%22%3A%22SHU%20Admissions%22%2C%22start_url%22%3A%22.%2Findex.html%22%2C%22display%22%3A%22standalone%22%2C%22background_color%22%3A%22%23f4f7f6%22%2C%22theme_color%22%3A%22%23990000%22%7D">
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Salim Habib University – MBA Weekend Programs</title>
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+<style>
+  :root {
+    --primary: #990000;
+    --primary-dark: #750000;
+    --secondary: #004b87;
+    --secondary-dark: #003561;
+    --bg: #f4f7f6;
+    --surface: #ffffff;
+    --surface-alt: #f9fbfc;
+    --text: #1f2937;
+    --text-muted: #5b6575;
+    --border: #e1e6ed;
+    --success-bg: #eef7f1;
+    --success-border: #b7dfc5;
+    --success-text: #185c37;
+    --warning-bg: #fff8eb;
+    --warning-border: #f3d28b;
+    --warning-text: #7c4d00;
+    --shadow-sm: 0 2px 8px rgba(0, 0, 0, 0.05);
+    --shadow-md: 0 8px 24px rgba(0, 0, 0, 0.08);
+    --radius: 12px;
+  }
 
-    <script type="text/javascript" src="https://gc.kes.v2.scr.kaspersky-labs.com/7EA5E9BB-55E1-4C31-9C21-4943DDFED2E4/main.js?attr=DsanVhkwkZBRSZVlwsuIugNIur78PI5M4dS4ebNahG3sGCswUFX1Ro5APPbmV78zD4uYZx4eD4AEnhnBYKqF68QWXvqiMO_2RE171nhm2k71Afl97GCw_Xi69VgkDmIAmhClUlixI7BkwtAMt9O3khBGIxIrzZGjnn4R60K8iV58Lmtb-dc2Hn3YZ130v4kI53r3lY2cTElUK855h6_nFv0lRy9bb_mXPsQptyCLfW9rOcejZagKXhOSsUjJhrcmCfDnxrqVLO7erAFaPwu-zJ-Jc3v-MEOcNp5tr8s97Tj_D0rg1inf6m9Tu8RXHnFr" charset="UTF-8"></script><style>
-        :root {
-            --primary: #990000;
-            --secondary: #004b87;
-            --bg-color: #f4f7f6;
-            --text-color: #333;
-            --card-bg: #fff;
-            --whatsapp: #25D366;
-            --whatsapp-dark: #1ebe57;
-        }
-        * { box-sizing: border-box; margin: 0; padding: 0; }
-        body { font-family: 'Poppins', sans-serif; background-color: var(--bg-color); color: var(--text-color); line-height: 1.6; padding-bottom: 30px; }
-        
-        header { background-color: var(--primary); color: #fff; padding: 15px 20px; text-align: center; box-shadow: 0 4px 10px rgba(0,0,0,0.1); }
-        header h1 { font-size: 22px; font-weight: 700; margin-bottom: 5px; }
-        header p { font-size: 13px; opacity: 0.9; }
-        
-        /* Sticky Program Indicator Bar */
-        .sticky-indicator {
-            position: sticky;
-            top: 0;
-            z-index: 999;
-            background: rgba(0, 75, 135, 0.96);
-            backdrop-filter: blur(5px);
-            color: white;
-            padding: 10px 15px;
-            text-align: center;
-            font-weight: 600;
-            font-size: 15px;
-            box-shadow: 0 4px 12px rgba(0,0,0,0.15);
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 10px;
-        }
-        .sticky-indicator span { background: #ffcc00; color: #333; padding: 2px 10px; border-radius: 4px; font-size: 13px; }
+  * {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+  }
 
-        .container { max-width: 1100px; margin: 0 auto; padding: 15px; }
-        
-        /* Tab Buttons */
-        .tab-container { display: flex; flex-wrap: wrap; justify-content: center; gap: 10px; margin: 20px 0; }
-        .tab-btn { background-color: #e1e8ed; color: #555; border: none; padding: 12px 20px; font-size: 15px; font-weight: 600; border-radius: 50px; cursor: pointer; transition: all 0.3s ease; flex: 1; min-width: 140px; max-width: 250px; text-align: center; }
-        .tab-btn:hover { background-color: #d1d8dd; }
-        .tab-btn.active { background-color: var(--secondary); color: white; box-shadow: 0 4px 10px rgba(0,75,135,0.3); transform: scale(1.03); }
+  html {
+    scroll-behavior: smooth;
+  }
 
-        .tab-content { display: none; animation: fadeIn 0.4s ease-in-out; }
-        .tab-content.active { display: block; }
-        @keyframes fadeIn { from { opacity: 0; transform: translateY(10px); } to { opacity: 1; transform: translateY(0); } }
+  body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--bg);
+    color: var(--text);
+    line-height: 1.6;
+    font-size: 15px;
+    padding-bottom: 48px;
+  }
 
-        .section-title { font-size: 24px; color: var(--secondary); border-bottom: 3px solid var(--primary); display: inline-block; margin-bottom: 20px; padding-bottom: 5px; }
-        
-        .card { background: var(--card-bg); border-radius: 12px; padding: 20px; box-shadow: 0 4px 15px rgba(0,0,0,0.05); margin-bottom: 25px; border-top: 4px solid var(--secondary); }
-        .card h3 { color: var(--primary); margin-bottom: 15px; font-size: 18px; }
-        
-        /* Desktop Table View */
-        .desktop-table { display: block; width: 100%; overflow-x: auto; }
-        table { width: 100%; border-collapse: collapse; min-width: 700px; }
-        th, td { padding: 10px 12px; text-align: left; border-bottom: 1px solid #ddd; font-size: 13px; }
-        th { background-color: var(--secondary); color: white; font-weight: 600; }
-        tr:nth-child(even) { background-color: #f9f9f9; }
-        tr:hover { background-color: #f1f1f1; }
+  .sticky-bar {
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    background: rgba(153, 0, 0, 0.96);
+    backdrop-filter: blur(8px);
+    color: #ffffff;
+    padding: 10px 18px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 12px;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.15);
+    font-size: 13px;
+  }
 
-        /* Mobile Fee Card View */
-        .mobile-fee-cards { display: none; }
-        .fee-item-card { background: #fafbfc; border: 1px solid #e1e8ed; border-radius: 8px; padding: 15px; margin-bottom: 12px; box-shadow: 0 2px 5px rgba(0,0,0,0.02); }
-        .fee-item-header { display: flex; justify-content: space-between; align-items: center; border-bottom: 2px solid var(--secondary); padding-bottom: 8px; margin-bottom: 10px; font-weight: bold; color: var(--secondary); font-size: 15px; }
-        .fee-row { display: flex; justify-content: space-between; font-size: 13.5px; padding: 4px 0; color: #555; border-bottom: 1px dashed #eee; }
-        .fee-row:last-child { border-bottom: none; }
-        .fee-total-row { display: flex; justify-content: space-between; font-size: 15px; font-weight: bold; color: var(--primary); margin-top: 8px; padding-top: 8px; border-top: 1px solid #ddd; }
+  .sticky-bar strong {
+    font-weight: 600;
+  }
 
-        @media (max-width: 768px) { 
-            .tab-btn { flex: 1 1 100%; max-width: 100%; }
-            .desktop-table { display: none; }
-            .mobile-fee-cards { display: block; }
-            .action-buttons-wrap { flex-direction: column; }
-        }
-        
-        .total-fee-box { background: linear-gradient(135deg, var(--primary), #cc0000); color: white; padding: 15px; border-radius: 8px; text-align: center; font-size: 18px; font-weight: bold; box-shadow: 0 4px 10px rgba(153, 0, 0, 0.3); margin-top: 15px; }
-        
-        /* Grids & Lists */
-        .grid-3 { display: grid; grid-template-columns: repeat(auto-fit, minmax(280px, 1fr)); gap: 15px; }
-        
-        .semester-box { background: #fdfdfd; border: 1px solid #eee; padding: 15px; border-radius: 8px; margin-bottom: 15px; }
-        .semester-title { color: var(--secondary); font-weight: 700; margin-bottom: 10px; font-size: 15px; border-bottom: 1px dashed #ccc; padding-bottom: 5px; }
-        .info-list { list-style: none; }
-        .info-list li { margin-bottom: 8px; padding-left: 20px; position: relative; font-size: 13.5px; }
-        .info-list li::before { content: "✓"; color: var(--primary); position: absolute; left: 0; font-weight: bold; }
+  .sticky-badge {
+    background: rgba(255, 255, 255, 0.16);
+    padding: 4px 10px;
+    border-radius: 999px;
+    font-weight: 500;
+    white-space: nowrap;
+  }
 
-        .elective-rule-box {
-            background: #eef6ff;
-            border: 1px solid #c3dcf8;
-            border-left: 4px solid var(--secondary);
-            padding: 11px 14px;
-            border-radius: 6px;
-            font-size: 13px;
-            color: #1f3a52;
-            margin-top: 8px;
-            margin-bottom: 12px;
-        }
+  header {
+    background: linear-gradient(135deg, var(--primary) 0%, var(--secondary) 100%);
+    color: #ffffff;
+    padding: 36px 20px 44px;
+    text-align: center;
+  }
 
-        /* Collapsible Transcript Note Button & Box */
-        .transcript-toggle-wrap {
-            margin-top: 10px;
-            margin-bottom: 12px;
-        }
-        .transcript-toggle-btn {
-            background-color: #fff4f4;
-            color: var(--primary);
-            border: 1px solid #f0c2c2;
-            padding: 9px 15px;
-            border-radius: 8px;
-            font-size: 13.5px;
-            font-weight: 600;
-            cursor: pointer;
-            display: inline-flex;
-            align-items: center;
-            gap: 8px;
-            transition: all 0.25s ease;
-            font-family: 'Poppins', sans-serif;
-        }
-        .transcript-toggle-btn:hover {
-            background-color: #ffe8e8;
-        }
-        .transcript-toggle-btn .chevron {
-            font-size: 10px;
-            transition: transform 0.25s ease;
-        }
-        .transcript-toggle-btn.open .chevron {
-            transform: rotate(180deg);
-        }
-        .transcript-note-box {
-            display: none;
-            font-size: 13px;
-            margin-top: 10px;
-            color: #3b2323;
-            background: #fff4f4;
-            padding: 12px 15px;
-            border-left: 3px solid var(--primary);
-            border-radius: 6px;
-            animation: fadeIn 0.3s ease;
-        }
-        .transcript-note-box.visible {
-            display: block;
-        }
-        
-        /* Interactive Specialization Tracks */
-        .spec-hint { font-size: 12.5px; color: #666; margin-bottom: 10px; font-style: italic; }
-        .specialization-container { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 10px; }
-        .spec-badge {
-            background-color: #f0f5fa;
-            color: var(--secondary);
-            padding: 9px 14px;
-            border-radius: 8px;
-            font-size: 13px;
-            font-weight: 600;
-            border: 1px solid #c5dcf5;
-            cursor: pointer;
-            transition: all 0.25s ease;
-            display: inline-flex;
-            align-items: center;
-            gap: 6px;
-            user-select: none;
-        }
-        .spec-badge:hover {
-            background-color: #e1eefb;
-            transform: translateY(-1px);
-        }
-        .spec-badge.active-track {
-            background-color: var(--secondary);
-            color: #fff;
-            border-color: var(--secondary);
-            box-shadow: 0 4px 10px rgba(0, 75, 135, 0.25);
-        }
-        .spec-badge .chevron {
-            font-size: 10px;
-            transition: transform 0.25s ease;
-        }
-        .spec-badge.active-track .chevron {
-            transform: rotate(180deg);
-        }
+  header .dept-tag {
+    display: inline-block;
+    background: rgba(255, 255, 255, 0.15);
+    border: 1px solid rgba(255, 255, 255, 0.25);
+    padding: 4px 14px;
+    border-radius: 999px;
+    font-size: 12px;
+    font-weight: 500;
+    letter-spacing: 0.4px;
+    margin-bottom: 10px;
+  }
 
-        .track-courses-panel {
-            display: none;
-            margin-top: 16px;
-            background: #f8fbff;
-            border: 1px solid #cce0f5;
-            border-left: 4px solid var(--primary);
-            border-radius: 8px;
-            padding: 16px 18px;
-            animation: fadeIn 0.3s ease;
-        }
-        .track-courses-panel.visible {
-            display: block;
-        }
-        .track-panel-header {
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            margin-bottom: 10px;
-            padding-bottom: 8px;
-            border-bottom: 1px dashed #c8d9eb;
-        }
-        .track-panel-title {
-            font-weight: 700;
-            color: var(--primary);
-            font-size: 15px;
-        }
-        .track-close-btn {
-            background: #eaeff5;
-            border: none;
-            color: #333;
-            font-size: 12px;
-            font-weight: 600;
-            padding: 4px 10px;
-            border-radius: 4px;
-            cursor: pointer;
-        }
-        .track-close-btn:hover { background: #dce4ee; }
-        .track-course-note {
-            font-size: 12.5px;
-            color: #445b73;
-            margin-bottom: 10px;
-            font-style: italic;
-        }
-        .track-course-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
-            gap: 8px;
-            list-style: none;
-        }
-        .track-course-grid li {
-            background: #fff;
-            border: 1px solid #e4ecf5;
-            padding: 7px 12px 7px 26px;
-            border-radius: 6px;
-            font-size: 13px;
-            position: relative;
-            color: #2c3e50;
-        }
-        .track-course-grid li::before {
-            content: "•";
-            color: var(--secondary);
-            font-weight: bold;
-            position: absolute;
-            left: 11px;
-            font-size: 16px;
-            line-height: 1.3;
-        }
+  header h1 {
+    font-size: clamp(22px, 4vw, 32px);
+    font-weight: 700;
+    line-height: 1.25;
+  }
 
-        .schedule-box { border-left: 4px solid var(--secondary); background: #f4f7fa; padding: 12px; border-radius: 0 8px 8px 0; margin-bottom: 12px; font-size: 14px; }
-        .schedule-box strong { color: var(--secondary); display: block; font-size: 16px; margin-bottom: 5px; }
-        
-        /* Action Buttons Container */
-        .action-buttons-wrap {
-            display: flex;
-            justify-content: center;
-            align-items: center;
-            gap: 15px;
-            margin: 30px auto;
-            max-width: 900px;
-        }
-        .apply-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 8px;
-            text-align: center;
-            background-color: var(--primary);
-            color: white;
-            text-decoration: none;
-            padding: 15px 28px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            flex: 1;
-            width: 100%;
-            box-shadow: 0 5px 15px rgba(153,0,0,0.35);
-            transition: transform 0.2s, background-color 0.2s;
-        }
-        .apply-btn:hover { transform: translateY(-2px); background-color: #b30000; }
+  .container {
+    max-width: 1120px;
+    margin: -22px auto 0;
+    padding: 0 16px;
+  }
 
-        .whatsapp-btn {
-            display: inline-flex;
-            align-items: center;
-            justify-content: center;
-            gap: 10px;
-            text-align: center;
-            background-color: var(--whatsapp);
-            color: #fff;
-            text-decoration: none;
-            padding: 15px 28px;
-            border-radius: 50px;
-            font-size: 16px;
-            font-weight: bold;
-            flex: 1;
-            width: 100%;
-            box-shadow: 0 5px 15px rgba(37, 211, 102, 0.35);
-            transition: transform 0.2s, background-color 0.2s;
-        }
-        .whatsapp-btn:hover { transform: translateY(-2px); background-color: var(--whatsapp-dark); }
-        
-        .rate-banner {
-            background: #f0f6fc;
-            border-left: 4px solid var(--secondary);
-            padding: 8px 12px;
-            border-radius: 4px;
-            font-size: 13.5px;
-            font-weight: 600;
-            color: var(--secondary);
-            margin-bottom: 14px;
-            display: inline-block;
-        }
-    </style>
+  .tabs-wrapper {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 8px;
+    box-shadow: var(--shadow-md);
+    display: grid;
+    grid-template-columns: repeat(3, 1fr);
+    gap: 8px;
+    margin-bottom: 24px;
+  }
+
+  .tab-btn {
+    border: none;
+    background: transparent;
+    color: var(--text);
+    font-family: 'Poppins', sans-serif;
+    font-size: 14.5px;
+    font-weight: 600;
+    padding: 14px;
+    border-radius: 9px;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    text-align: center;
+  }
+
+  .tab-btn:hover {
+    background: #f0f4f8;
+  }
+
+  .tab-btn.active {
+    background: var(--primary);
+    color: #ffffff;
+    box-shadow: 0 4px 12px rgba(153, 0, 0, 0.25);
+  }
+
+  .program-panel {
+    display: none;
+  }
+
+  .program-panel.active {
+    display: block;
+  }
+
+  .card {
+    background: var(--surface);
+    border-radius: var(--radius);
+    padding: 22px;
+    box-shadow: var(--shadow-sm);
+    border: 1px solid var(--border);
+    margin-bottom: 20px;
+  }
+
+  .section-title {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--secondary-dark);
+    margin-bottom: 14px;
+    padding-bottom: 8px;
+    border-bottom: 2px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    gap: 8px;
+  }
+
+  .rate-pill {
+    background: #fdf2f2;
+    color: var(--primary);
+    border: 1px solid #f2c6c6;
+    font-size: 12.5px;
+    font-weight: 600;
+    padding: 4px 12px;
+    border-radius: 999px;
+  }
+
+  .summary-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+    gap: 14px;
+    margin-bottom: 16px;
+  }
+
+  .summary-box {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-left: 4px solid var(--secondary);
+    border-radius: 10px;
+    padding: 14px;
+  }
+
+  .summary-box.highlight {
+    border-left-color: var(--primary);
+    background: #fff9f9;
+  }
+
+  .summary-box .label {
+    font-size: 12px;
+    color: var(--text-muted);
+    display: block;
+  }
+
+  .summary-box .value {
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text);
+    margin-top: 2px;
+  }
+
+  .charges-note {
+    background: var(--surface-alt);
+    border: 1px dashed #cbd5e1;
+    border-radius: 9px;
+    padding: 12px 14px;
+    font-size: 13px;
+    color: var(--text-muted);
+    margin-bottom: 16px;
+  }
+
+  .table-responsive {
+    width: 100%;
+    overflow-x: auto;
+  }
+
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    font-size: 13.5px;
+  }
+
+  th, td {
+    padding: 11px 12px;
+    border-bottom: 1px solid var(--border);
+    text-align: left;
+  }
+
+  th {
+    background: var(--secondary);
+    color: #ffffff;
+    font-weight: 600;
+    white-space: nowrap;
+  }
+
+  tr:nth-child(even) td {
+    background: #fafbfd;
+  }
+
+  tr.total-row td {
+    background: #eef4fa;
+    font-weight: 700;
+    color: var(--secondary-dark);
+    border-top: 2px solid var(--secondary);
+  }
+
+  .num {
+    text-align: right;
+    font-variant-numeric: tabular-nums;
+  }
+
+  .mobile-fee-cards {
+    display: none;
+  }
+
+  .fee-card-item {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    margin-bottom: 12px;
+    background: var(--surface-alt);
+  }
+
+  .fee-card-item.total-card {
+    background: #eef4fa;
+    border-color: var(--secondary);
+  }
+
+  .fee-card-header {
+    display: flex;
+    justify-content: space-between;
+    font-weight: 700;
+    color: var(--secondary-dark);
+    margin-bottom: 8px;
+  }
+
+  .fee-card-row {
+    display: flex;
+    justify-content: space-between;
+    font-size: 13px;
+    padding: 3px 0;
+  }
+
+  .curriculum-note {
+    background: var(--warning-bg);
+    border: 1px solid var(--warning-border);
+    color: var(--warning-text);
+    padding: 12px 14px;
+    border-radius: 9px;
+    font-size: 13px;
+    margin-bottom: 16px;
+  }
+
+  .sem-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 14px;
+  }
+
+  .sem-card {
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 14px;
+    background: var(--surface-alt);
+  }
+
+  .sem-card h4 {
+    color: var(--primary);
+    font-size: 14.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+    padding-bottom: 6px;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 8px;
+  }
+
+  .sem-cr-badge {
+    background: #fdf2f2;
+    color: var(--primary);
+    border: 1px solid #f2c6c6;
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 2px 8px;
+    border-radius: 999px;
+    white-space: nowrap;
+  }
+
+  .course-list {
+    list-style: none;
+  }
+
+  .course-list li {
+    font-size: 13px;
+    padding: 5px 0;
+    border-bottom: 1px dashed #e5e7eb;
+    display: flex;
+    justify-content: space-between;
+    gap: 10px;
+  }
+
+  .course-list li:last-child {
+    border-bottom: none;
+  }
+
+  .cr-tag {
+    background: #e6eef7;
+    color: var(--secondary-dark);
+    font-size: 11.5px;
+    font-weight: 600;
+    padding: 1px 7px;
+    border-radius: 6px;
+    white-space: nowrap;
+    height: fit-content;
+  }
+
+  .toggle-btn {
+    margin-top: 14px;
+    background: #f1f5f9;
+    color: var(--secondary-dark);
+    border: 1px solid #cbd5e1;
+    padding: 9px 14px;
+    border-radius: 8px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 13px;
+    font-weight: 600;
+    cursor: pointer;
+    display: inline-flex;
+    align-items: center;
+    gap: 6px;
+  }
+
+  .toggle-btn:hover {
+    background: #e2e8f0;
+  }
+
+  .collapsible-box {
+    display: none;
+    margin-top: 10px;
+    background: #f8fafc;
+    border: 1px solid #cbd5e1;
+    border-left: 4px solid var(--secondary);
+    border-radius: 9px;
+    padding: 14px;
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .collapsible-box.open {
+    display: block;
+  }
+
+  .elective-rule-box {
+    background: var(--success-bg);
+    border: 1px solid var(--success-border);
+    color: var(--success-text);
+    border-radius: 10px;
+    padding: 14px 16px;
+    margin-bottom: 16px;
+    font-size: 13.5px;
+  }
+
+  .elective-rule-box strong {
+    font-weight: 700;
+  }
+
+  .tracks-grid {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 9px;
+  }
+
+  .track-chip {
+    background: #f3f6fa;
+    color: var(--secondary-dark);
+    border: 1px solid #cbd5e1;
+    padding: 8px 13px;
+    border-radius: 999px;
+    font-family: 'Poppins', sans-serif;
+    font-size: 12.5px;
+    font-weight: 500;
+    cursor: pointer;
+    transition: all 0.15s ease;
+  }
+
+  .track-chip:hover {
+    border-color: var(--primary);
+    color: var(--primary);
+  }
+
+  .track-chip.active {
+    background: var(--secondary);
+    color: #ffffff;
+    border-color: var(--secondary);
+  }
+
+  .track-detail-panel {
+    display: none;
+    margin-top: 14px;
+    background: #f8fbff;
+    border: 1px solid #bfd4ea;
+    border-left: 4px solid var(--primary);
+    border-radius: 10px;
+    padding: 15px 18px;
+  }
+
+  .track-detail-panel.open {
+    display: block;
+  }
+
+  .track-detail-panel h4 {
+    color: var(--primary);
+    font-size: 15px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .track-detail-panel ul {
+    margin-left: 18px;
+    font-size: 13px;
+  }
+
+  .track-detail-panel li {
+    margin-bottom: 4px;
+  }
+
+  .info-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 16px;
+  }
+
+  .info-box {
+    background: var(--surface-alt);
+    border: 1px solid var(--border);
+    border-radius: 10px;
+    padding: 16px;
+  }
+
+  .info-box h4 {
+    color: var(--secondary-dark);
+    font-size: 14.5px;
+    font-weight: 600;
+    margin-bottom: 8px;
+  }
+
+  .info-box p, .info-box li {
+    font-size: 13px;
+    color: var(--text);
+  }
+
+  .info-box ul {
+    margin-left: 16px;
+  }
+
+  .info-box li {
+    margin-bottom: 5px;
+  }
+
+  .cta-bar {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 14px;
+    justify-content: center;
+    margin-top: 24px;
+  }
+
+  .btn-action {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    gap: 8px;
+    text-decoration: none;
+    font-family: 'Poppins', sans-serif;
+    font-size: 14px;
+    font-weight: 600;
+    padding: 13px 22px;
+    border-radius: 10px;
+    transition: transform 0.15s ease, box-shadow 0.15s ease;
+  }
+
+  .btn-action:hover {
+    transform: translateY(-1px);
+    box-shadow: var(--shadow-md);
+  }
+
+  .btn-apply {
+    background: var(--primary);
+    color: #ffffff;
+  }
+
+  .btn-whatsapp {
+    background: #128c7e;
+    color: #ffffff;
+  }
+
+  @media (max-width: 768px) {
+    .tabs-wrapper {
+      grid-template-columns: 1fr;
+    }
+
+    .table-responsive {
+      display: none;
+    }
+
+    .mobile-fee-cards {
+      display: block;
+    }
+
+    .sticky-bar {
+      flex-direction: column;
+      align-items: flex-start;
+      gap: 4px;
+    }
+  }
+</style>
 </head>
 <body>
 
-    <header>
-        <h1>Salim Habib University</h1>
-        <p>Department of Business Administration | Admissions Dashboard</p>
-    </header>
+<div class="sticky-bar" id="stickyBar">
+  <div>Selected Program: <strong id="stickyProgramName">BBA (Bridge) 2.5 Years</strong></div>
+  <div class="sticky-badge" id="stickyProgramMeta">84 Cr. Hrs | Total: Rs. 710,128</div>
+</div>
 
-    <!-- Sticky Floating Indicator Bar -->
-    <div class="sticky-indicator">
-        Viewing Program: <span id="current-prog-label">BBA (2.5 Years)</span>
+<header>
+  <div class="dept-tag">Department of Business Administration</div>
+  <h1>Salim Habib University – MBA Weekend Programs</h1>
+</header>
+
+<div class="container">
+  <div class="tabs-wrapper" role="tablist" aria-label="Business Programs">
+    <button type="button" class="tab-btn active" data-program="bba25" onclick="switchProgram('bba25')">
+      BBA (Bridge) 2.5 Years
+    </button>
+    <button type="button" class="tab-btn" data-program="mba15" onclick="switchProgram('mba15')">
+      MBA 1.5 Years
+    </button>
+    <button type="button" class="tab-btn" data-program="mba20" onclick="switchProgram('mba20')">
+      MBA 2 Years
+    </button>
+  </div>
+
+  <!-- ==================== BBA 2.5 YEARS PANEL ==================== -->
+  <section id="panel-bba25" class="program-panel active">
+    <div class="card">
+      <div class="section-title">
+        <span>BBA (Bridge) 2.5 Years – Fee Structure</span>
+        <span class="rate-pill">Rate per Cr. Hr: Rs. 7,442</span>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-box">
+          <span class="label">Total Credit Hours</span>
+          <div class="value">15 + 69 = 84 Cr. Hrs</div>
+        </div>
+        <div class="summary-box">
+          <span class="label">Rate per Credit Hour</span>
+          <div class="value">Rs. 7,442</div>
+        </div>
+        <div class="summary-box highlight">
+          <span class="label">Total Program Fee</span>
+          <div class="value">Rs. 710,128</div>
+        </div>
+      </div>
+
+      <div class="charges-note">
+        <strong>Standard Charges:</strong> Admission Fee: Rs. 15,000 (1st/Bridge semester only) &bull; Security Deposit: Rs. 10,000 (1st/Bridge semester only) &bull; Exam Fee: Rs. 5,000 per semester &bull; Activity Fee: Rs. 5,000 per semester.
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Term / Semester</th>
+              <th class="num">Credit Hours</th>
+              <th class="num">Tuition Fee</th>
+              <th class="num">Other Charges</th>
+              <th class="num">Semester Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Bridge / Deficiency Sem</td>
+              <td class="num">15</td>
+              <td class="num">Rs. 111,630</td>
+              <td class="num">Rs. 35,000</td>
+              <td class="num">Rs. 146,630</td>
+            </tr>
+            <tr>
+              <td>Semester 1</td>
+              <td class="num">15</td>
+              <td class="num">Rs. 111,630</td>
+              <td class="num">Rs. 10,000</td>
+              <td class="num">Rs. 121,630</td>
+            </tr>
+            <tr>
+              <td>Semester 2</td>
+              <td class="num">15</td>
+              <td class="num">Rs. 111,630</td>
+              <td class="num">Rs. 10,000</td>
+              <td class="num">Rs. 121,630</td>
+            </tr>
+            <tr>
+              <td>Semester 3</td>
+              <td class="num">18</td>
+              <td class="num">Rs. 133,956</td>
+              <td class="num">Rs. 10,000</td>
+              <td class="num">Rs. 143,956</td>
+            </tr>
+            <tr>
+              <td>Summer Semester</td>
+              <td class="num">3</td>
+              <td class="num">Rs. 22,326</td>
+              <td class="num">Rs. 10,000</td>
+              <td class="num">Rs. 32,326</td>
+            </tr>
+            <tr>
+              <td>Semester 4</td>
+              <td class="num">18</td>
+              <td class="num">Rs. 133,956</td>
+              <td class="num">Rs. 10,000</td>
+              <td class="num">Rs. 143,956</td>
+            </tr>
+            <tr class="total-row">
+              <td>Total (BBA Bridge 2.5 Years)</td>
+              <td class="num">84</td>
+              <td class="num">Rs. 625,128</td>
+              <td class="num">Rs. 85,000</td>
+              <td class="num">Rs. 710,128</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mobile-fee-cards">
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Bridge / Deficiency Sem</span><span>15 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 111,630</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 35,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 146,630</strong></div>
+        </div>
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 1</span><span>15 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 111,630</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 10,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 121,630</strong></div>
+        </div>
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 2</span><span>15 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 111,630</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 10,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 121,630</strong></div>
+        </div>
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 3</span><span>18 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 133,956</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 10,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 143,956</strong></div>
+        </div>
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Summer Semester</span><span>3 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 22,326</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 10,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 32,326</strong></div>
+        </div>
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 4</span><span>18 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 133,956</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 10,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 143,956</strong></div>
+        </div>
+        <div class="fee-card-item total-card">
+          <div class="fee-card-header"><span>Grand Total</span><span>84 Cr. Hrs</span></div>
+          <div class="fee-card-row"><strong>Total Program Fee:</strong><strong>Rs. 710,128</strong></div>
+        </div>
+      </div>
     </div>
 
-    <div class="container">
-        
-        <div style="text-align: center; margin-bottom: 10px;">
-            <p style="font-size: 15px; color: #555;">Select your program to view details:</p>
+    <div class="card">
+      <div class="section-title">
+        <span>BBA (Bridge) 2.5 Years – Curriculum &amp; Courses</span>
+      </div>
+      <div class="curriculum-note">
+        <strong>Deficiency Courses Committee Note:</strong> Up to 5 deficiency courses (15 credit hours) may be assigned based on prior education by a committee comprising the Dean, Head of Program, and Program Manager.
+      </div>
+
+      <div class="sem-grid">
+        <div class="sem-card">
+          <h4><span>Deficiency Courses</span><span class="sem-cr-badge">15 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Introduction to Finance</span><span class="cr-tag">3+0</span></li>
+            <li><span>Application of Information and Communication Technologies</span><span class="cr-tag">3+0</span></li>
+            <li><span>Introduction to Accounting</span><span class="cr-tag">3+0</span></li>
+            <li><span>Principles of Marketing</span><span class="cr-tag">3+0</span></li>
+            <li><span>Business Management and Leadership</span><span class="cr-tag">3+0</span></li>
+          </ul>
         </div>
 
-        <!-- Program Navigation Tabs -->
-        <div class="tab-container">
-            <button class="tab-btn active" onclick="openTab('bba25', 'BBA (2.5 Years)', this)">BBA (2.5 Years)</button>
-            <button class="tab-btn" onclick="openTab('mba15', 'MBA (1.5 Years)', this)">MBA (1.5 Years)</button>
-            <button class="tab-btn" onclick="openTab('mba2', 'MBA (2 Years)', this)">MBA (2 Years)</button>
+        <div class="sem-card">
+          <h4><span>Semester 1</span><span class="sem-cr-badge">15 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Human Resource Management</span><span class="cr-tag">3+0</span></li>
+            <li><span>Enterprise Resource Planning</span><span class="cr-tag">3+0</span></li>
+            <li><span>Financial Management</span><span class="cr-tag">3+0</span></li>
+            <li><span>Applied Business Communications</span><span class="cr-tag">3+0</span></li>
+            <li><span>Principles of Supply Chain</span><span class="cr-tag">3+0</span></li>
+          </ul>
         </div>
 
-        <!-- ================= BBA 2.5 ================= -->
-        <div id="bba25" class="tab-content active">
-            <h2 class="section-title">BBA (Bridge) 2.5 Years (14 Yrs Education)</h2>
-            <div class="card">
-                <h3>Curriculum (15 + 69 = 84 Credit Hours)</h3>
-                <p style="font-size: 13px; margin-bottom: 15px; color: #555; background: #fff3f3; padding: 10px; border-left: 3px solid var(--primary);">
-                    * Up to 5 deficiency courses (15 credit hours) may be assigned based on a student’s prior education, as determined by a committee comprising the Dean, Head of Program, and Program Manager.
-                </p>
-                <div class="grid-3">
-                    <div class="semester-box"><div class="semester-title">Deficiency Courses (15 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Introduction to Finance (3+0)</li>
-                            <li>Application of Information and Communication Technologies (3+0)</li>
-                            <li>Introduction to Accounting (3+0)</li>
-                            <li>Principles of Marketing (3+0)</li>
-                            <li>Business Management and Leadership (3+0)</li>
-                        </ul>
-                    </div>
-                    <div class="semester-box"><div class="semester-title">Semester 1 (15 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Human Resource Management (3+0)</li>
-                            <li>Enterprise Resource Planning (3+0)</li>
-                            <li>Financial Management (3+0)</li>
-                            <li>Applied Business Communications (3+0)</li>
-                            <li>Principles of Supply Chain (3+0)</li>
-                        </ul>
-                    </div>
-                    <div class="semester-box"><div class="semester-title">Semester 2 (15 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Business Research Methods (3+0)</li>
-                            <li>Digital Marketing (3+0)</li>
-                            <li>AI in Business (3+0)</li>
-                            <li>Entrepreneurship (3+0)</li>
-                            <li>Islamic Banking and Finance (3+0)</li>
-                        </ul>
-                    </div>
-                    <div class="semester-box"><div class="semester-title">Semester 3 (18 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Business Ethics & Leadership (3+0)</li>
-                            <li>Brand Management (3+0)</li>
-                            <li>Business Law (3+0)</li>
-                            <li>Elective I (3+0)</li>
-                            <li>Elective II (3+0)</li>
-                            <li>Elective III (3+0)</li>
-                        </ul>
-                    </div>
-                    <div class="semester-box"><div class="semester-title">Summer Semester (3 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Internship (0+3)</li>
-                        </ul>
-                    </div>
-                    <div class="semester-box"><div class="semester-title">Semester 4 (18 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Strategic Management (3+0)</li>
-                            <li>Sales Management (3+0)</li>
-                            <li>Capstone Project (0+3)</li>
-                            <li>Elective IV (3+0)</li>
-                            <li>Elective V (3+0)</li>
-                            <li>Elective VI (3+0)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h4 style="color: var(--secondary); margin-top: 25px; margin-bottom: 4px; border-top: 1px solid #eee; padding-top: 15px;">🌟 Specialization Tracks Offered:</h4>
-                <p class="spec-hint">Tap on any specialization track below to view its relevant courses:</p>
-                <div class="specialization-container" id="tracks-bba25"></div>
-                <div class="track-courses-panel" id="panel-bba25">
-                    <div class="track-panel-header">
-                        <span class="track-panel-title" id="panel-title-bba25"></span>
-                        <button class="track-close-btn" onclick="closeTrackPanel('bba25')">✕ Close</button>
-                    </div>
-                    <p class="track-course-note" id="panel-note-bba25"></p>
-                    <ul class="track-course-grid" id="panel-list-bba25"></ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <h3>Fee Structure</h3>
-                <div class="rate-banner">• Rate per Cr. Hr: Rs. 7,442</div>
-                <div class="desktop-table">
-                    <table>
-                        <thead><tr><th>Semester</th><th>Cr. Hrs</th><th>Tuition Fee</th><th>Admission</th><th>Security</th><th>Exam Fee</th><th>Activity</th><th>Total (Rs.)</th></tr></thead>
-                        <tbody>
-                            <tr><td>Bridge / Deficiency Sem</td><td>15</td><td>111,630</td><td>15,000</td><td>10,000</td><td>5,000</td><td>5,000</td><td><b>146,630</b></td></tr>
-                            <tr><td>Semester 1</td><td>15</td><td>111,630</td><td>-</td><td>-</td><td>5,000</td><td>5,000</td><td><b>121,630</b></td></tr>
-                            <tr><td>Semester 2</td><td>15</td><td>111,630</td><td>-</td><td>-</td><td>5,000</td><td>5,000</td><td><b>121,630</b></td></tr>
-                            <tr><td>Semester 3</td><td>18</td><td>133,956</td><td>-</td><td>-</td><td>5,000</td><td>5,000</td><td><b>143,956</b></td></tr>
-                            <tr><td>Summer Semester</td><td>3</td><td>22,326</td><td>-</td><td>-</td><td>5,000</td><td>5,000</td><td><b>32,326</b></td></tr>
-                            <tr><td>Semester 4</td><td>18</td><td>133,956</td><td>-</td><td>-</td><td>5,000</td><td>5,000</td><td><b>143,956</b></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="mobile-fee-cards">
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Bridge / Deficiency Sem</span> <span>15 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 111,630</span></div><div class="fee-row"><span>Admission Fee:</span> <span>Rs. 15,000</span></div><div class="fee-row"><span>Security Deposit:</span> <span>Rs. 10,000</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 146,630</span></div></div>
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 1</span> <span>15 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 111,630</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 121,630</span></div></div>
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 2</span> <span>15 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 111,630</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 121,630</span></div></div>
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 3</span> <span>18 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 133,956</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 143,956</span></div></div>
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Summer Semester</span> <span>3 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 22,326</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 32,326</span></div></div>
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 4</span> <span>18 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 133,956</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 143,956</span></div></div>
-                </div>
-
-                <div class="total-fee-box">TOTAL PROGRAM FEE: Rs. 710,128</div>
-            </div>
+        <div class="sem-card">
+          <h4><span>Semester 2</span><span class="sem-cr-badge">15 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Business Research Methods</span><span class="cr-tag">3+0</span></li>
+            <li><span>Digital Marketing</span><span class="cr-tag">3+0</span></li>
+            <li><span>AI in Business</span><span class="cr-tag">3+0</span></li>
+            <li><span>Entrepreneurship</span><span class="cr-tag">3+0</span></li>
+            <li><span>Islamic Banking and Finance</span><span class="cr-tag">3+0</span></li>
+          </ul>
         </div>
 
-        <!-- ================= MBA 1.5 ================= -->
-        <div id="mba15" class="tab-content">
-            <h2 class="section-title">MBA 1.5 Years (For Business Graduates)</h2>
-            <div class="card">
-                <h3>Curriculum (38 Credit Hours)</h3>
-                <div class="grid-3">
-                    <div class="semester-box"><div class="semester-title">Semester 01 (13 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Business Strategy in the Digital Era (3+0)</li>
-                            <li>Marketing Strategies with Value Innovation (3+0)</li>
-                            <li>Research Methods for Business Managers (3+0)</li>
-                            <li>Strategic Finance and Investment (3+0)</li>
-                            <li>Fehm-e-Quran-I (0+1)</li>
-                        </ul>
-                    </div>
-                    <div class="semester-box"><div class="semester-title">Semester 02 (13 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Organization Design and Learning System (3+0)</li>
-                            <li>Data Driven Business Decision Making (3+0)</li>
-                            <li>Elective I (3+0)</li>
-                            <li>Capstone Project I or Thesis I (3+0)</li>
-                            <li>Fehm-e-Quran-II (0+1)</li>
-                        </ul>
-                    </div>
-                    <div class="semester-box"><div class="semester-title">Semester 03 (12 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Elective II (3+0)</li>
-                            <li>Elective III (3+0)</li>
-                            <li>Elective IV (3+0)</li>
-                            <li>Capstone Project II / Thesis II (3+0)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <!-- Collapsible Note Button placed right after the Curriculum Scheme -->
-                <div class="transcript-toggle-wrap">
-                    <button type="button" class="transcript-toggle-btn" id="btn-transcript-mba15" onclick="toggleTranscriptNote()">
-                        📌 Note on Prior BBA Transcript &amp; Deficiency Courses <span class="chevron">▼</span>
-                    </button>
-                    <div class="transcript-note-box" id="box-transcript-mba15">
-                        If you completed fewer prerequisite/core courses during your BBA at another university or if certain courses do not align with our curriculum, additional deficiency/makeup courses may be required. Final course requirements will be determined after reviewing your BBA transcript.
-                    </div>
-                </div>
-
-                <h4 style="color: var(--secondary); margin-top: 20px; margin-bottom: 4px; border-top: 1px solid #eee; padding-top: 15px;">🌟 Specialization Tracks Offered:</h4>
-                <div class="elective-rule-box">
-                    <strong>Electives Rule (4 Electives):</strong> Out of the 4 electives in the program, taking <strong>at least 1 course from Compulsory Electives (AI)</strong> is mandatory, and the <strong>remaining 3 electives</strong> can be chosen from your specialization tracks.
-                </div>
-                <p class="spec-hint">Tap on any specialization track below (including Compulsory Electives (AI)) to view its relevant courses:</p>
-                <div class="specialization-container" id="tracks-mba15"></div>
-                <div class="track-courses-panel" id="panel-mba15">
-                    <div class="track-panel-header">
-                        <span class="track-panel-title" id="panel-title-mba15"></span>
-                        <button class="track-close-btn" onclick="closeTrackPanel('mba15')">✕ Close</button>
-                    </div>
-                    <p class="track-course-note" id="panel-note-mba15"></p>
-                    <ul class="track-course-grid" id="panel-list-mba15"></ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <h3>Fee Structure</h3>
-                <div class="rate-banner">• Rate per Cr. Hr: Rs. 7,442</div>
-                <div class="desktop-table">
-                    <table>
-                        <thead><tr><th>Semester</th><th>Cr. Hrs</th><th>Tuition Fee</th><th>Admission</th><th>Security</th><th>Exam Fee</th><th>Activity</th><th>Total (Rs.)</th></tr></thead>
-                        <tbody>
-                            <tr><td>Semester 01</td><td>13</td><td>96,746</td><td>15,000</td><td>10,000</td><td>5,000</td><td>5,000</td><td><b>131,746</b></td></tr>
-                            <tr><td>Semester 02</td><td>13</td><td>96,746</td><td>-</td><td>-</td><td>5,000</td><td>5,000</td><td><b>106,746</b></td></tr>
-                            <tr><td>Semester 03</td><td>12</td><td>89,304</td><td>-</td><td>-</td><td>5,000</td><td>5,000</td><td><b>99,304</b></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="mobile-fee-cards">
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 01</span> <span>13 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 96,746</span></div><div class="fee-row"><span>Admission Fee:</span> <span>Rs. 15,000</span></div><div class="fee-row"><span>Security Deposit:</span> <span>Rs. 10,000</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 131,746</span></div></div>
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 02</span> <span>13 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 96,746</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 106,746</span></div></div>
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 03</span> <span>12 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 89,304</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 99,304</span></div></div>
-                </div>
-
-                <div class="total-fee-box">TOTAL PROGRAM FEE: Rs. 337,796</div>
-            </div>
+        <div class="sem-card">
+          <h4><span>Semester 3</span><span class="sem-cr-badge">18 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Business Ethics &amp; Leadership</span><span class="cr-tag">3+0</span></li>
+            <li><span>Brand Management</span><span class="cr-tag">3+0</span></li>
+            <li><span>Business Law</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective I</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective II</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective III</span><span class="cr-tag">3+0</span></li>
+          </ul>
         </div>
 
-        <!-- ================= MBA 2 ================= -->
-        <div id="mba2" class="tab-content">
-            <h2 class="section-title">MBA 2 Years (For Non-Business Graduates)</h2>
-            <div class="card">
-                <h3>Curriculum (68 Credit Hours)</h3>
-                <div class="grid-3">
-                    <div class="semester-box"><div class="semester-title">Semester 01 (16 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Financial Accounting and Corporate Reporting (3+0)</li>
-                            <li>Business and Market Analysis (3+0)</li>
-                            <li>Marketing Management (3+0)</li>
-                            <li>Business Management and Leadership (3+0)</li>
-                            <li>Introduction to Business Analytics (3+0)</li>
-                            <li>Fehm-e-Quran I (0+1)</li>
-                        </ul>
-                    </div>
-                    <div class="semester-box"><div class="semester-title">Semester 02 (16 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Organizational Behavior & HRM (3+0)</li>
-                            <li>Research Methods for Business Managers (3+0)</li>
-                            <li>Data Driven Business Decision Making (3+0)</li>
-                            <li>Finance for Business Managers (3+0)</li>
-                            <li>Supply Chain Management (3+0)</li>
-                            <li>Fehm-e-Quran II (0+1)</li>
-                        </ul>
-                    </div>
-                    <div class="semester-box"><div class="semester-title">Semester 03 (18 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Accounting for Management Decisions (3+0)</li>
-                            <li>Macroeconomics and Global Business Environment (3+0)</li>
-                            <li>Business Strategy in the Digital Era (3+0)</li>
-                            <li>Strategic Finance and Investment (3+0)</li>
-                            <li>Capstone Project I or Thesis I (3+0)</li>
-                            <li>Elective-I (3+0)</li>
-                        </ul>
-                    </div>
-                    <div class="semester-box"><div class="semester-title">Semester 04 (18 Cr. Hrs)</div>
-                        <ul class="info-list">
-                            <li>Marketing Strategies with Value Innovation (3+0)</li>
-                            <li>Organization Design and Learning System (3+0)</li>
-                            <li>Elective II (3+0)</li>
-                            <li>Elective III (3+0)</li>
-                            <li>Elective IV (3+0)</li>
-                            <li>Capstone Project II / Thesis II (3+0)</li>
-                        </ul>
-                    </div>
-                </div>
-
-                <h4 style="color: var(--secondary); margin-top: 25px; margin-bottom: 4px; border-top: 1px solid #eee; padding-top: 15px;">🌟 Specialization Tracks Offered:</h4>
-                <div class="elective-rule-box">
-                    <strong>Electives Rule (4 Electives):</strong> Out of the 4 electives in the program, taking <strong>at least 1 course from Compulsory Electives (AI)</strong> is mandatory, and the <strong>remaining 3 electives</strong> can be chosen from your specialization tracks.
-                </div>
-                <p class="spec-hint">Tap on any specialization track below (including Compulsory Electives (AI)) to view its relevant courses:</p>
-                <div class="specialization-container" id="tracks-mba2"></div>
-                <div class="track-courses-panel" id="panel-mba2">
-                    <div class="track-panel-header">
-                        <span class="track-panel-title" id="panel-title-mba2"></span>
-                        <button class="track-close-btn" onclick="closeTrackPanel('mba2')">✕ Close</button>
-                    </div>
-                    <p class="track-course-note" id="panel-note-mba2"></p>
-                    <ul class="track-course-grid" id="panel-list-mba2"></ul>
-                </div>
-            </div>
-            
-            <div class="card">
-                <h3>Fee Structure</h3>
-                <div class="rate-banner">• Rate per Cr. Hr: Rs. 7,442</div>
-                <div class="desktop-table">
-                    <table>
-                        <thead><tr><th>Semester</th><th>Cr. Hrs</th><th>Tuition Fee</th><th>Admission</th><th>Security</th><th>Exam Fee</th><th>Activity</th><th>Total (Rs.)</th></tr></thead>
-                        <tbody>
-                            <tr><td>Semester 01</td><td>16</td><td>119,072</td><td>15,000</td><td>10,000</td><td>5,000</td><td>5,000</td><td><b>154,072</b></td></tr>
-                            <tr><td>Semester 02</td><td>16</td><td>119,072</td><td>-</td><td>-</td><td>5,000</td><td>5,000</td><td><b>129,072</b></td></tr>
-                            <tr><td>Semester 03</td><td>18</td><td>133,956</td><td>-</td><td>-</td><td>5,000</td><td>5,000</td><td><b>143,956</b></td></tr>
-                            <tr><td>Semester 04</td><td>18</td><td>133,956</td><td>-</td><td>-</td><td>5,000</td><td>5,000</td><td><b>143,956</b></td></tr>
-                        </tbody>
-                    </table>
-                </div>
-
-                <div class="mobile-fee-cards">
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 01</span> <span>16 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 119,072</span></div><div class="fee-row"><span>Admission Fee:</span> <span>Rs. 15,000</span></div><div class="fee-row"><span>Security Deposit:</span> <span>Rs. 10,000</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 154,072</span></div></div>
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 02</span> <span>16 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 119,072</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 129,072</span></div></div>
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 03</span> <span>18 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 133,956</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 143,956</span></div></div>
-                    <div class="fee-item-card"><div class="fee-item-header"><span>Semester 04</span> <span>18 Cr. Hrs</span></div><div class="fee-row"><span>Tuition Fee:</span> <span>Rs. 133,956</span></div><div class="fee-row"><span>Examination Fee:</span> <span>Rs. 5,000</span></div><div class="fee-row"><span>Activity Fund:</span> <span>Rs. 5,000</span></div><div class="fee-total-row"><span>Semester Total:</span> <span>Rs. 143,956</span></div></div>
-                </div>
-
-                <div class="total-fee-box">TOTAL PROGRAM FEE: Rs. 571,056</div>
-            </div>
+        <div class="sem-card">
+          <h4><span>Summer Semester</span><span class="sem-cr-badge">3 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Internship</span><span class="cr-tag">0+3</span></li>
+          </ul>
         </div>
 
-        <!-- ================= GENERAL INFO ================= -->
-        <h2 class="section-title" style="margin-top: 20px;">General Information</h2>
-        
-        <!-- Academic Eligibility Criteria Section -->
-        <div class="card">
-            <h3>🎓 Academic Eligibility Criteria</h3>
-            <ul class="info-list" style="margin-top: 10px;">
-                <li><b>MBA (1.5 Years - For Business Graduates):</b> 16 years of education or a 4-year Bachelor's degree in a business-related field (such as BBA) with a minimum of 50% marks or a 2.0 CGPA. (Additional deficiency courses may apply if prior BBA coursework had fewer or non-matching courses, to be determined after reviewing the BBA transcript.)</li>
-                <li><b>MBA (2 Years - For Non-Business Graduates):</b> 16 years of education or a 4-year Bachelor's degree in any non-business discipline with a minimum of 50% marks or a 2.0 CGPA.</li>
-                <li><b>BBA Bridge Program / Weekend Options:</b> 2-year Bachelor's degree in commerce or equivalent with at least 45% marks or a 2.0 CGPA (where applicable).</li>
-            </ul>
+        <div class="sem-card">
+          <h4><span>Semester 4</span><span class="sem-cr-badge">18 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Strategic Management</span><span class="cr-tag">3+0</span></li>
+            <li><span>Sales Management</span><span class="cr-tag">3+0</span></li>
+            <li><span>Capstone Project</span><span class="cr-tag">0+3</span></li>
+            <li><span>Elective IV</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective V</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective VI</span><span class="cr-tag">3+0</span></li>
+          </ul>
         </div>
-
-        <!-- Class Schedule Section -->
-        <div class="card">
-            <h3>📅 Class Schedule (Weekend Classes)</h3>
-            <p style="margin-bottom: 15px; font-size: 13.5px; color: #555;">Classes are conducted on weekends to facilitate working professionals.</p>
-            <div class="schedule-box"><strong>Saturday</strong>Class 1: 3:00 PM – 6:00 PM<br>Class 2: 6:00 PM – 9:00 PM</div>
-            <div class="schedule-box"><strong>Sunday</strong>Class 1: 9:00 AM – 12:00 PM<br>Class 2: 12:00 PM – 3:00 PM<br>Class 3: 3:00 PM – 6:00 PM</div>
-        </div>
-
-        <!-- Scholarships & Admissions Section -->
-        <div class="card">
-            <h3>🎓 Scholarships & Admissions</h3>
-            <h4 style="color: var(--secondary); margin: 15px 0 10px 0;">Existing SHU Students Scholarship:</h4>
-            <ul class="info-list" style="margin-bottom: 20px;">
-                <li>SGPA 3.8 and above: <b>100% of Tuition Fee</b></li>
-                <li>SGPA 3.5 – 3.79: <b>50% of Tuition Fee</b></li>
-            </ul>
-            <h4 style="color: var(--secondary); margin-bottom: 10px;">How to Apply:</h4>
-            <ol style="font-size: 13.5px; margin-bottom: 10px; margin-left: 20px; line-height: 1.8; color: #444;">
-                <li>Click the Apply button below and fill the online form.</li>
-                <li>Receive a voucher for the <b>Rs. 1,000 admission test fee</b> via email (check spam folder).</li>
-                <li>Pay via KUICKPAY using any bank app. KUICKPAY ID will be on the voucher.</li>
-            </ol>
-        </div>
-
-        <!-- Apply & WhatsApp Buttons -->
-        <div class="action-buttons-wrap">
-            <a href="https://admissions.shu.edu.pk/Admissionforms" class="apply-btn" target="_blank">
-                📝 Apply Online Now
-            </a>
-            <a href="https://wa.me/923404887565?text=Assalam-o-Alaikum%2C%20I%20would%20like%20to%20inquire%20about%20Salim%20Habib%20University%20Business%20Admissions." class="whatsapp-btn" target="_blank">
-                💬 Contact on WhatsApp (0340-4887565)
-            </a>
-        </div>
-        
+      </div>
     </div>
 
-    <!-- Script for Tab Switching, Interactive Tracks & PWA Service Worker -->
-    <script>
-        const trackData = {
-            bba25: [
-                {
-                    name: "Pharmaceutical Management and Marketing",
-                    note: "Specialization courses offered under Pharmaceutical Management and Marketing.",
-                    courses: [
-                        "Pharmaceutical Marketing and Research",
-                        "Pharmaceutical Quality Management",
-                        "Pharma Value Chain and Distribution Management",
-                        "Pharma Sales Management and CRM",
-                        "Consumer Behaviour in Pharmaceuticals",
-                        "Pricing Strategy in Pharma Industry"
-                    ]
-                },
-                {
-                    name: "Human Resource Management",
-                    note: "Specialization courses offered under Human Resource Management.",
-                    courses: [
-                        "Change Management",
-                        "Conflict Resolution and Crisis Management",
-                        "HR Policy Development",
-                        "Human Resources Information Systems",
-                        "Talent Management and Succession Planning",
-                        "Training and Development",
-                        "Compensation Benefits",
-                        "HR Analytics"
-                    ]
-                },
-                {
-                    name: "Finance",
-                    note: "Specialization courses offered under Finance.",
-                    courses: [
-                        "Project Management",
-                        "Elements of Financial Forecasting",
-                        "Introduction to Derivatives",
-                        "Applied Corporate Finance",
-                        "Analysis of Financial Statements",
-                        "Digital Finance & FinTech"
-                    ]
-                },
-                {
-                    name: "Accounting",
-                    note: "Specialization courses offered under Accounting.",
-                    courses: [
-                        "Advance Auditing",
-                        "Advance Taxation",
-                        "Corporate Financial Reporting and Analysis",
-                        "Data Analytics for Accountants",
-                        "Management Decisions for Performance",
-                        "Corporate Governance and Reporting",
-                        "Forensic Accounting",
-                        "Entrepreneurial Accounting",
-                        "Accounting Information System"
-                    ]
-                },
-                {
-                    name: "Marketing",
-                    note: "Specialization courses offered under Marketing.",
-                    courses: [
-                        "Marketing Research",
-                        "Pricing Models and Strategies",
-                        "Integrated Marketing Communications",
-                        "Social Media & E-Services",
-                        "E-Commerce",
-                        "Advertising",
-                        "Marketing Analytics"
-                    ]
-                },
-                {
-                    name: "Supply Chain Management",
-                    note: "Specialization courses offered under Supply Chain Management.",
-                    courses: [
-                        "Integrated Demand and Supply Planning",
-                        "Strategic Procurement",
-                        "Advance Transportation Systems and Multimodal Logistics",
-                        "Warehouse Design, Automation, and Inventory Control",
-                        "Supply Chain Finance, Risk, and Resilience",
-                        "Sustainable and Circular Supply Chains",
-                        "Geopolitics, Trade Policy, and Global Supply Networks",
-                        "Managing Channel Partners and Customer Relations",
-                        "Supply Chain Strategy and Competitive Advantage",
-                        "Business Intelligence and Dashboards for Supply Chains"
-                    ]
-                },
-                {
-                    name: "Islamic Banking and Finance",
-                    note: "Specialization courses offered under Islamic Banking and Finance.",
-                    courses: [
-                        "Islamic Law of Contracts",
-                        "Islamic Treasury Operations",
-                        "Islamic Wealth Planning and Management",
-                        "Shariah Issues in Islamic Finance",
-                        "Islamic Partnership Corporate and Securities Law",
-                        "Risk Management for Islamic Financial",
-                        "Islamic Portfolio Management"
-                    ]
-                },
-                {
-                    name: "Health Care & Hospital Management",
-                    note: "Specialization courses offered under Health Care & Hospital Management.",
-                    courses: [
-                        "Public Health Practice",
-                        "Hospital Planning and Design",
-                        "Hospital Management Information System",
-                        "Hospital Services and Management",
-                        "Health Communication Principles & Strategies",
-                        "Health Care Marketing Strategies",
-                        "Occupational Health and Safety Product Management"
-                    ]
-                }
-            ],
-            mba15: [
-                {
-                    name: "Pharmaceutical Management and Marketing",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Pharmaceutical Marketing and Research",
-                        "Pharmaceutical Quality Management",
-                        "Pharma Value Chain and Distribution Management",
-                        "Pharma Sales Management and CRM",
-                        "Consumer Behaviour in Pharmaceuticals",
-                        "Pricing Strategy in Pharma Industry"
-                    ]
-                },
-                {
-                    name: "Human Resource Management",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Change Management",
-                        "Conflict Resolution and Crisis Management",
-                        "HR Policy Development",
-                        "Human Resources Information Systems",
-                        "Talent Management and Succession Planning",
-                        "Training and Development",
-                        "Compensation Benefits",
-                        "HR Analytics"
-                    ]
-                },
-                {
-                    name: "Finance",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Project Management",
-                        "Elements of Financial Forecasting",
-                        "Introduction to Derivatives",
-                        "Applied Corporate Finance",
-                        "Analysis of Financial Statements",
-                        "Digital Finance & FinTech"
-                    ]
-                },
-                {
-                    name: "Accounting",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Advance Auditing",
-                        "Advance Taxation",
-                        "Corporate Financial Reporting and Analysis",
-                        "Data Analytics for Accountants",
-                        "Management Decisions for Performance",
-                        "Corporate Governance and Reporting",
-                        "Forensic Accounting",
-                        "Entrepreneurial Accounting",
-                        "Accounting Information System"
-                    ]
-                },
-                {
-                    name: "Marketing",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Digital Marketing",
-                        "Pricing Models and Strategies",
-                        "Integrated Marketing Communications",
-                        "Social Media & E-Services",
-                        "E-Commerce",
-                        "Advertising",
-                        "Marketing Analytics"
-                    ]
-                },
-                {
-                    name: "Supply Chain Management",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Integrated Demand and Supply Planning",
-                        "Strategic Procurement",
-                        "Advance Transportation Systems and Multimodal Logistics",
-                        "Warehouse Design, Automation, and Inventory Control",
-                        "Supply Chain Finance, Risk, and Resilience",
-                        "Sustainable and Circular Supply Chains",
-                        "Geopolitics, Trade Policy, and Global Supply Networks",
-                        "Managing Channel Partners and Customer Relations",
-                        "Supply Chain Strategy and Competitive Advantage",
-                        "Business Intelligence and Dashboards for Supply Chains"
-                    ]
-                },
-                {
-                    name: "Islamic Banking and Finance",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Islamic Law of Contracts",
-                        "Islamic Treasury Operations",
-                        "Islamic Wealth Planning and Management",
-                        "Shariah Issues in Islamic Finance",
-                        "Islamic Partnership Corporate and Securities Law",
-                        "Risk Management for Islamic Financial",
-                        "Islamic Portfolio Management"
-                    ]
-                },
-                {
-                    name: "Health Care & Hospital Management",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Public Health Practice",
-                        "Hospital Planning and Design",
-                        "Hospital Management Information System",
-                        "Hospital Services and Management",
-                        "Health Communication Principles & Strategies",
-                        "Health Care Marketing Strategies",
-                        "Occupational Health and Safety Product Management"
-                    ]
-                },
-                {
-                    name: "Compulsory Electives (AI)",
-                    note: "Out of 4 total electives, taking at least 1 course from Compulsory Electives (AI) is mandatory; the remaining 3 electives can be selected from specialization tracks.",
-                    courses: [
-                        "Generative AI in Business",
-                        "AI Strategy and Governance",
-                        "Consumer Analytics and AI",
-                        "AI in Digital Marketing"
-                    ]
-                }
-            ],
-            mba2: [
-                {
-                    name: "Pharmaceutical Management and Marketing",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Pharmaceutical Marketing and Research",
-                        "Pharmaceutical Quality Management",
-                        "Pharma Value Chain and Distribution Management",
-                        "Pharma Sales Management and CRM",
-                        "Consumer Behaviour in Pharmaceuticals",
-                        "Pricing Strategy in Pharma Industry"
-                    ]
-                },
-                {
-                    name: "Human Resource Management",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Change Management",
-                        "Conflict Resolution and Crisis Management",
-                        "HR Policy Development",
-                        "Human Resources Information Systems",
-                        "Talent Management and Succession Planning",
-                        "Training and Development",
-                        "Compensation Benefits",
-                        "HR Analytics"
-                    ]
-                },
-                {
-                    name: "Finance",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Project Management",
-                        "Elements of Financial Forecasting",
-                        "Introduction to Derivatives",
-                        "Applied Corporate Finance",
-                        "Analysis of Financial Statements",
-                        "Digital Finance & FinTech"
-                    ]
-                },
-                {
-                    name: "Accounting",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Advance Auditing",
-                        "Advance Taxation",
-                        "Corporate Financial Reporting and Analysis",
-                        "Data Analytics for Accountants",
-                        "Management Decisions for Performance",
-                        "Corporate Governance and Reporting",
-                        "Forensic Accounting",
-                        "Entrepreneurial Accounting",
-                        "Accounting Information System"
-                    ]
-                },
-                {
-                    name: "Marketing",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Digital Marketing",
-                        "Pricing Models and Strategies",
-                        "Integrated Marketing Communications",
-                        "Social Media & E-Services",
-                        "E-Commerce",
-                        "Advertising",
-                        "Marketing Analytics"
-                    ]
-                },
-                {
-                    name: "Supply Chain Management",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Integrated Demand and Supply Planning",
-                        "Strategic Procurement",
-                        "Advance Transportation Systems and Multimodal Logistics",
-                        "Warehouse Design, Automation, and Inventory Control",
-                        "Supply Chain Finance, Risk, and Resilience",
-                        "Sustainable and Circular Supply Chains",
-                        "Geopolitics, Trade Policy, and Global Supply Networks",
-                        "Managing Channel Partners and Customer Relations",
-                        "Supply Chain Strategy and Competitive Advantage",
-                        "Business Intelligence and Dashboards for Supply Chains"
-                    ]
-                },
-                {
-                    name: "Islamic Banking and Finance",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Islamic Law of Contracts",
-                        "Islamic Treasury Operations",
-                        "Islamic Wealth Planning and Management",
-                        "Shariah Issues in Islamic Finance",
-                        "Islamic Partnership Corporate and Securities Law",
-                        "Risk Management for Islamic Financial",
-                        "Islamic Portfolio Management"
-                    ]
-                },
-                {
-                    name: "Health Care & Hospital Management",
-                    note: "Specialization track courses (up to 3 electives may be taken from specialization tracks after completing at least 1 Compulsory Elective in AI).",
-                    courses: [
-                        "Public Health Practice",
-                        "Hospital Planning and Design",
-                        "Hospital Management Information System",
-                        "Hospital Services and Management",
-                        "Health Communication Principles & Strategies",
-                        "Health Care Marketing Strategies",
-                        "Occupational Health and Safety Product Management"
-                    ]
-                },
-                {
-                    name: "Compulsory Electives (AI)",
-                    note: "Out of 4 total electives, taking at least 1 course from Compulsory Electives (AI) is mandatory; the remaining 3 electives can be selected from specialization tracks.",
-                    courses: [
-                        "Generative AI in Business",
-                        "AI Strategy and Governance",
-                        "Machine Learning for Finance",
-                        "Consumer Analytics and AI",
-                        "AI in Digital Marketing"
-                    ]
-                }
-            ]
-        };
+    <div class="card">
+      <div class="section-title">
+        <span>Specialization Tracks Offered (Click to Expand Relevant Courses)</span>
+      </div>
+      <div class="tracks-grid" data-program-scope="bba25">
+        <button type="button" class="track-chip" onclick="toggleTrack('bba25', 'pharma', this)">Pharmaceutical Management and Marketing</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('bba25', 'hrm', this)">Human Resource Management</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('bba25', 'finance', this)">Finance</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('bba25', 'accounting', this)">Accounting</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('bba25', 'scm', this)">Supply Chain Management</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('bba25', 'islamic', this)">Islamic Banking and Finance</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('bba25', 'healthcare', this)">Health Care &amp; Hospital Management</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('bba25', 'marketing', this)">Marketing</button>
+      </div>
+      <div id="track-panel-bba25" class="track-detail-panel"></div>
+    </div>
+  </section>
 
-        const activeTracks = { bba25: null, mba15: null, mba2: null };
+  <!-- ==================== MBA 1.5 YEARS PANEL ==================== -->
+  <section id="panel-mba15" class="program-panel">
+    <div class="card">
+      <div class="section-title">
+        <span>MBA 1.5 Years – Fee Structure</span>
+        <span class="rate-pill">Rate per Cr. Hr: Rs. 7,442</span>
+      </div>
 
-        function renderTracks(programKey) {
-            const container = document.getElementById(`tracks-${programKey}`);
-            if (!container) return;
-            container.innerHTML = "";
-            trackData[programKey].forEach((track, idx) => {
-                const badge = document.createElement("button");
-                badge.type = "button";
-                badge.className = "spec-badge";
-                badge.innerHTML = `${track.name} <span class="chevron">▼</span>`;
-                badge.onclick = () => toggleTrackCourses(programKey, idx, badge);
-                container.appendChild(badge);
-            });
-        }
+      <div class="summary-grid">
+        <div class="summary-box">
+          <span class="label">Total Credit Hours</span>
+          <div class="value">38 Cr. Hrs</div>
+        </div>
+        <div class="summary-box">
+          <span class="label">Rate per Credit Hour</span>
+          <div class="value">Rs. 7,442</div>
+        </div>
+        <div class="summary-box highlight">
+          <span class="label">Total Program Fee</span>
+          <div class="value">Rs. 337,796</div>
+        </div>
+      </div>
 
-        function toggleTrackCourses(programKey, idx, badgeEl) {
-            const container = document.getElementById(`tracks-${programKey}`);
-            const panel = document.getElementById(`panel-${programKey}`);
-            const titleEl = document.getElementById(`panel-title-${programKey}`);
-            const noteEl = document.getElementById(`panel-note-${programKey}`);
-            const listEl = document.getElementById(`panel-list-${programKey}`);
-            const badges = container.querySelectorAll(".spec-badge");
+      <div class="charges-note">
+        <strong>Standard Charges:</strong> Admission Fee: Rs. 15,000 (1st/Bridge semester only) &bull; Security Deposit: Rs. 10,000 (1st/Bridge semester only) &bull; Exam Fee: Rs. 5,000 per semester &bull; Activity Fee: Rs. 5,000 per semester.
+      </div>
 
-            if (activeTracks[programKey] === idx) {
-                closeTrackPanel(programKey);
-                return;
-            }
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Semester</th>
+              <th class="num">Credit Hours</th>
+              <th class="num">Tuition Fee</th>
+              <th class="num">Other Charges</th>
+              <th class="num">Semester Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Semester 01</td>
+              <td class="num">13</td>
+              <td class="num">Rs. 96,746</td>
+              <td class="num">Rs. 35,000</td>
+              <td class="num">Rs. 131,746</td>
+            </tr>
+            <tr>
+              <td>Semester 02</td>
+              <td class="num">13</td>
+              <td class="num">Rs. 96,746</td>
+              <td class="num">Rs. 10,000</td>
+              <td class="num">Rs. 106,746</td>
+            </tr>
+            <tr>
+              <td>Semester 03</td>
+              <td class="num">12</td>
+              <td class="num">Rs. 89,304</td>
+              <td class="num">Rs. 10,000</td>
+              <td class="num">Rs. 99,304</td>
+            </tr>
+            <tr class="total-row">
+              <td>Total (MBA 1.5 Years)</td>
+              <td class="num">38</td>
+              <td class="num">Rs. 282,796</td>
+              <td class="num">Rs. 55,000</td>
+              <td class="num">Rs. 337,796</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
 
-            badges.forEach(b => b.classList.remove("active-track"));
-            badgeEl.classList.add("active-track");
-            activeTracks[programKey] = idx;
+      <div class="mobile-fee-cards">
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 01</span><span>13 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 96,746</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 35,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 131,746</strong></div>
+        </div>
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 02</span><span>13 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 96,746</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 10,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 106,746</strong></div>
+        </div>
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 03</span><span>12 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 89,304</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 10,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 99,304</strong></div>
+        </div>
+        <div class="fee-card-item total-card">
+          <div class="fee-card-header"><span>Grand Total</span><span>38 Cr. Hrs</span></div>
+          <div class="fee-card-row"><strong>Total Program Fee:</strong><strong>Rs. 337,796</strong></div>
+        </div>
+      </div>
+    </div>
 
-            const track = trackData[programKey][idx];
-            titleEl.textContent = `📚 ${track.name} — Courses Offered`;
-            noteEl.textContent = track.note || "";
-            listEl.innerHTML = track.courses.map(c => `<li>${c}</li>`).join("");
-            panel.classList.add("visible");
-        }
+    <div class="card">
+      <div class="section-title">
+        <span>MBA 1.5 Years – Curriculum &amp; Courses</span>
+      </div>
 
-        function closeTrackPanel(programKey) {
-            const container = document.getElementById(`tracks-${programKey}`);
-            const panel = document.getElementById(`panel-${programKey}`);
-            if (container) {
-                container.querySelectorAll(".spec-badge").forEach(b => b.classList.remove("active-track"));
-            }
-            if (panel) panel.classList.remove("visible");
-            activeTracks[programKey] = null;
-        }
+      <div class="sem-grid">
+        <div class="sem-card">
+          <h4><span>Semester 01</span><span class="sem-cr-badge">13 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Business Strategy in the Digital Era</span><span class="cr-tag">3+0</span></li>
+            <li><span>Marketing Strategies with Value Innovation</span><span class="cr-tag">3+0</span></li>
+            <li><span>Research Methods for Business Managers</span><span class="cr-tag">3+0</span></li>
+            <li><span>Strategic Finance and Investment</span><span class="cr-tag">3+0</span></li>
+            <li><span>Fehm-e-Quran-I</span><span class="cr-tag">0+1</span></li>
+          </ul>
+        </div>
 
-        function toggleTranscriptNote() {
-            const btn = document.getElementById("btn-transcript-mba15");
-            const box = document.getElementById("box-transcript-mba15");
-            if (!btn || !box) return;
-            btn.classList.toggle("open");
-            box.classList.toggle("visible");
-        }
+        <div class="sem-card">
+          <h4><span>Semester 02</span><span class="sem-cr-badge">13 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Organization Design and Learning System</span><span class="cr-tag">3+0</span></li>
+            <li><span>Data Driven Business Decision Making</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective I</span><span class="cr-tag">3+0</span></li>
+            <li><span>Capstone Project I or Thesis I</span><span class="cr-tag">3+0</span></li>
+            <li><span>Fehm-e-Quran-II</span><span class="cr-tag">0+1</span></li>
+          </ul>
+        </div>
 
-        ["bba25", "mba15", "mba2"].forEach(renderTracks);
+        <div class="sem-card">
+          <h4><span>Semester 03</span><span class="sem-cr-badge">12 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Elective II</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective III</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective IV</span><span class="cr-tag">3+0</span></li>
+            <li><span>Capstone Project II / Thesis II</span><span class="cr-tag">3+0</span></li>
+          </ul>
+        </div>
+      </div>
 
-        function openTab(tabId, programName, btnElement) {
-            var contents = document.getElementsByClassName("tab-content");
-            for (var i = 0; i < contents.length; i++) {
-                contents[i].classList.remove("active");
-            }
-            
-            var buttons = document.getElementsByClassName("tab-btn");
-            for (var i = 0; i < buttons.length; i++) {
-                buttons[i].classList.remove("active");
-            }
-            
-            document.getElementById(tabId).classList.add("active");
-            btnElement.classList.add("active");
+      <button type="button" class="toggle-btn" onclick="toggleTranscriptNote()">
+        <span>Note on Prior BBA Transcript &amp; Deficiency Courses</span>
+      </button>
+      <div id="transcriptNoteBox" class="collapsible-box">
+        If the student completed fewer prerequisite or core courses during their BBA at another university, or if certain courses do not align with the curriculum, additional deficiency or makeup courses may be required. Any such requirement is determined after reviewing the student's BBA transcript.
+      </div>
+    </div>
 
-            document.getElementById("current-prog-label").innerText = programName;
-            window.scrollTo({ top: 120, behavior: 'smooth' });
-        }
+    <div class="card">
+      <div class="section-title">
+        <span>Specialization Tracks Offered (Click to Expand Relevant Courses)</span>
+      </div>
 
-        // Register Service Worker for Offline / PWA Support
-        if ('serviceWorker' in navigator) {
-            const swCode = `
-                self.addEventListener('install', e => {
-                    e.waitUntil(
-                        caches.open('shu-cache-v4').then(cache => {
-                            return cache.addAll(['./', './index.html']);
-                        })
-                    );
-                });
-                self.addEventListener('fetch', e => {
-                    e.respondWith(
-                        caches.match(e.request).then(response => {
-                            return response || fetch(e.request);
-                        })
-                    );
-                });
-            `;
-            const blob = new Blob([swCode], { type: 'text/javascript' });
-            const swUrl = URL.createObjectURL(blob);
-            navigator.serviceWorker.register(swUrl).catch(err => console.log('SW registration failed', err));
-        }
-    </script>
+      <div class="elective-rule-box">
+        <strong>Electives Rule (4 Electives):</strong> Out of the 4 electives, taking <strong>at least 1 course from Compulsory Electives (AI)</strong> is mandatory, and the <strong>remaining 3 electives</strong> can be chosen from specialization tracks.
+      </div>
 
+      <div class="tracks-grid" data-program-scope="mba15">
+        <button type="button" class="track-chip" onclick="toggleTrack('mba15', 'ai', this)">Compulsory Electives (AI)</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba15', 'pharma', this)">Pharmaceutical Management and Marketing</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba15', 'hrm', this)">Human Resource Management</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba15', 'finance', this)">Finance</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba15', 'accounting', this)">Accounting</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba15', 'scm', this)">Supply Chain Management</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba15', 'islamic', this)">Islamic Banking and Finance</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba15', 'healthcare', this)">Health Care &amp; Hospital Management</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba15', 'marketing', this)">Marketing</button>
+      </div>
+      <div id="track-panel-mba15" class="track-detail-panel"></div>
+    </div>
+  </section>
+
+  <!-- ==================== MBA 2 YEARS PANEL ==================== -->
+  <section id="panel-mba20" class="program-panel">
+    <div class="card">
+      <div class="section-title">
+        <span>MBA 2 Years – Fee Structure</span>
+        <span class="rate-pill">Rate per Cr. Hr: Rs. 7,442</span>
+      </div>
+
+      <div class="summary-grid">
+        <div class="summary-box">
+          <span class="label">Total Credit Hours</span>
+          <div class="value">68 Cr. Hrs</div>
+        </div>
+        <div class="summary-box">
+          <span class="label">Rate per Credit Hour</span>
+          <div class="value">Rs. 7,442</div>
+        </div>
+        <div class="summary-box highlight">
+          <span class="label">Total Program Fee</span>
+          <div class="value">Rs. 571,056</div>
+        </div>
+      </div>
+
+      <div class="charges-note">
+        <strong>Standard Charges:</strong> Admission Fee: Rs. 15,000 (1st/Bridge semester only) &bull; Security Deposit: Rs. 10,000 (1st/Bridge semester only) &bull; Exam Fee: Rs. 5,000 per semester &bull; Activity Fee: Rs. 5,000 per semester.
+      </div>
+
+      <div class="table-responsive">
+        <table>
+          <thead>
+            <tr>
+              <th>Semester</th>
+              <th class="num">Credit Hours</th>
+              <th class="num">Tuition Fee</th>
+              <th class="num">Other Charges</th>
+              <th class="num">Semester Total</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr>
+              <td>Semester 01</td>
+              <td class="num">16</td>
+              <td class="num">Rs. 119,072</td>
+              <td class="num">Rs. 35,000</td>
+              <td class="num">Rs. 154,072</td>
+            </tr>
+            <tr>
+              <td>Semester 02</td>
+              <td class="num">16</td>
+              <td class="num">Rs. 119,072</td>
+              <td class="num">Rs. 10,000</td>
+              <td class="num">Rs. 129,072</td>
+            </tr>
+            <tr>
+              <td>Semester 03</td>
+              <td class="num">18</td>
+              <td class="num">Rs. 133,956</td>
+              <td class="num">Rs. 10,000</td>
+              <td class="num">Rs. 143,956</td>
+            </tr>
+            <tr>
+              <td>Semester 04</td>
+              <td class="num">18</td>
+              <td class="num">Rs. 133,956</td>
+              <td class="num">Rs. 10,000</td>
+              <td class="num">Rs. 143,956</td>
+            </tr>
+            <tr class="total-row">
+              <td>Total (MBA 2 Years)</td>
+              <td class="num">68</td>
+              <td class="num">Rs. 506,056</td>
+              <td class="num">Rs. 65,000</td>
+              <td class="num">Rs. 571,056</td>
+            </tr>
+          </tbody>
+        </table>
+      </div>
+
+      <div class="mobile-fee-cards">
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 01</span><span>16 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 119,072</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 35,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 154,072</strong></div>
+        </div>
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 02</span><span>16 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 119,072</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 10,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 129,072</strong></div>
+        </div>
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 03</span><span>18 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 133,956</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 10,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 143,956</strong></div>
+        </div>
+        <div class="fee-card-item">
+          <div class="fee-card-header"><span>Semester 04</span><span>18 Cr. Hrs</span></div>
+          <div class="fee-card-row"><span>Tuition Fee:</span><span>Rs. 133,956</span></div>
+          <div class="fee-card-row"><span>Other Charges:</span><span>Rs. 10,000</span></div>
+          <div class="fee-card-row"><strong>Semester Total:</strong><strong>Rs. 143,956</strong></div>
+        </div>
+        <div class="fee-card-item total-card">
+          <div class="fee-card-header"><span>Grand Total</span><span>68 Cr. Hrs</span></div>
+          <div class="fee-card-row"><strong>Total Program Fee:</strong><strong>Rs. 571,056</strong></div>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">
+        <span>MBA 2 Years – Curriculum &amp; Courses</span>
+      </div>
+
+      <div class="sem-grid">
+        <div class="sem-card">
+          <h4><span>Semester 01</span><span class="sem-cr-badge">16 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Financial Accounting and Corporate Reporting</span><span class="cr-tag">3+0</span></li>
+            <li><span>Business and Market Analysis</span><span class="cr-tag">3+0</span></li>
+            <li><span>Marketing Management</span><span class="cr-tag">3+0</span></li>
+            <li><span>Business Management and Leadership</span><span class="cr-tag">3+0</span></li>
+            <li><span>Introduction to Business Analytics</span><span class="cr-tag">3+0</span></li>
+            <li><span>Fehm-e-Quran I</span><span class="cr-tag">0+1</span></li>
+          </ul>
+        </div>
+
+        <div class="sem-card">
+          <h4><span>Semester 02</span><span class="sem-cr-badge">16 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Organizational Behavior &amp; HRM</span><span class="cr-tag">3+0</span></li>
+            <li><span>Research Methods for Business Managers</span><span class="cr-tag">3+0</span></li>
+            <li><span>Data Driven Business Decision Making</span><span class="cr-tag">3+0</span></li>
+            <li><span>Finance for Business Managers</span><span class="cr-tag">3+0</span></li>
+            <li><span>Supply Chain Management</span><span class="cr-tag">3+0</span></li>
+            <li><span>Fehm-e-Quran II</span><span class="cr-tag">0+1</span></li>
+          </ul>
+        </div>
+
+        <div class="sem-card">
+          <h4><span>Semester 03</span><span class="sem-cr-badge">18 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Accounting for Management Decisions</span><span class="cr-tag">3+0</span></li>
+            <li><span>Macroeconomics and Global Business Environment</span><span class="cr-tag">3+0</span></li>
+            <li><span>Business Strategy in the Digital Era</span><span class="cr-tag">3+0</span></li>
+            <li><span>Strategic Finance and Investment</span><span class="cr-tag">3+0</span></li>
+            <li><span>Capstone Project I or Thesis I</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective-I</span><span class="cr-tag">3+0</span></li>
+          </ul>
+        </div>
+
+        <div class="sem-card">
+          <h4><span>Semester 04</span><span class="sem-cr-badge">18 Cr. Hrs</span></h4>
+          <ul class="course-list">
+            <li><span>Marketing Strategies with Value Innovation</span><span class="cr-tag">3+0</span></li>
+            <li><span>Organization Design and Learning System</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective II</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective III</span><span class="cr-tag">3+0</span></li>
+            <li><span>Elective IV</span><span class="cr-tag">3+0</span></li>
+            <li><span>Capstone Project II / Thesis II</span><span class="cr-tag">3+0</span></li>
+          </ul>
+        </div>
+      </div>
+    </div>
+
+    <div class="card">
+      <div class="section-title">
+        <span>Specialization Tracks Offered (Click to Expand Relevant Courses)</span>
+      </div>
+
+      <div class="elective-rule-box">
+        <strong>Electives Rule (4 Electives):</strong> Out of the 4 electives, taking <strong>at least 1 course from Compulsory Electives (AI)</strong> is mandatory, and the <strong>remaining 3 electives</strong> can be chosen from specialization tracks.
+      </div>
+
+      <div class="tracks-grid" data-program-scope="mba20">
+        <button type="button" class="track-chip" onclick="toggleTrack('mba20', 'ai', this)">Compulsory Electives (AI)</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba20', 'pharma', this)">Pharmaceutical Management and Marketing</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba20', 'hrm', this)">Human Resource Management</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba20', 'finance', this)">Finance</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba20', 'accounting', this)">Accounting</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba20', 'scm', this)">Supply Chain Management</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba20', 'islamic', this)">Islamic Banking and Finance</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba20', 'healthcare', this)">Health Care &amp; Hospital Management</button>
+        <button type="button" class="track-chip" onclick="toggleTrack('mba20', 'marketing', this)">Marketing</button>
+      </div>
+      <div id="track-panel-mba20" class="track-detail-panel"></div>
+    </div>
+  </section>
+
+  <!-- ==================== GENERAL INFORMATION SECTION ==================== -->
+  <section class="card" id="generalInfo">
+    <div class="section-title">
+      <span>Academic Eligibility, Weekend Schedule, Scholarships &amp; How to Apply</span>
+    </div>
+
+    <div class="info-grid">
+      <div class="info-box">
+        <h4>Academic Eligibility Criteria</h4>
+        <ul>
+          <li><strong>MBA (1.5 Years – For Business Graduates):</strong> 16 years of education or 4-year Bachelor's degree in a business-related field (such as BBA) with minimum 50% marks or 2.0 CGPA (additional deficiency courses may apply after reviewing the BBA transcript).</li>
+          <li><strong>MBA (2 Years – For Non-Business Graduates):</strong> 16 years of education or 4-year Bachelor's degree in any non-business discipline with minimum 50% marks or 2.0 CGPA.</li>
+          <li><strong>BBA Bridge Program / Weekend Options:</strong> 2-year Bachelor's degree in commerce or equivalent with at least 45% marks or 2.0 CGPA (where applicable).</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h4>Weekend Class Schedule</h4>
+        <ul>
+          <li><strong>Saturday:</strong> 3:00 PM – 6:00 PM &amp; 6:00 PM – 9:00 PM</li>
+          <li><strong>Sunday:</strong> 9:00 AM – 12:00 PM, 12:00 PM – 3:00 PM &amp; 3:00 PM – 6:00 PM</li>
+        </ul>
+      </div>
+
+      <div class="info-box">
+        <h4>Scholarships &amp; How to Apply</h4>
+        <ul>
+          <li><strong>Merit / SGPA Scholarships:</strong> SGPA 3.8+ (100% tuition fee) &bull; SGPA 3.5–3.79 (50% tuition fee).</li>
+          <li><strong>Step 1:</strong> Fill out the online admission application form on the SHU portal.</li>
+          <li><strong>Step 2:</strong> Pay the Rs. 1,000 admission test fee via <strong>KUICKPAY</strong>.</li>
+          <li><strong>Step 3:</strong> Appear for the admission test / interview and complete document verification.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="cta-bar">
+      <a href="https://admissions.shu.edu.pk/Admissionforms" target="_blank" rel="noopener noreferrer" class="btn-action btn-apply">
+        Apply Online Now
+      </a>
+      <a href="https://wa.me/923404887565" target="_blank" rel="noopener noreferrer" class="btn-action btn-whatsapp">
+        Contact on WhatsApp (0340-4887565)
+      </a>
+    </div>
+  </section>
+</div>
+
+<script>
+  const PROGRAM_META = {
+    bba25: {
+      name: 'BBA (Bridge) 2.5 Years',
+      meta: '84 Cr. Hrs | Total: Rs. 710,128'
+    },
+    mba15: {
+      name: 'MBA 1.5 Years',
+      meta: '38 Cr. Hrs | Total: Rs. 337,796'
+    },
+    mba20: {
+      name: 'MBA 2 Years',
+      meta: '68 Cr. Hrs | Total: Rs. 571,056'
+    }
+  };
+
+  const TRACK_DATA = {
+    ai: {
+      title: 'Compulsory Electives (AI)',
+      mba15: [
+        'Generative AI in Business',
+        'AI Strategy and Governance',
+        'Consumer Analytics and AI',
+        'AI in Digital Marketing'
+      ],
+      mba20: [
+        'Generative AI in Business',
+        'AI Strategy and Governance',
+        'Consumer Analytics and AI',
+        'AI in Digital Marketing',
+        'Machine Learning for Finance'
+      ]
+    },
+    pharma: {
+      title: 'Pharmaceutical Management and Marketing',
+      courses: [
+        'Pharmaceutical Marketing & Sales Strategy',
+        'Healthcare & Pharma Regulatory Environment',
+        'Product Management in Pharmaceuticals'
+      ]
+    },
+    hrm: {
+      title: 'Human Resource Management',
+      courses: [
+        'Talent Acquisition & Performance Management',
+        'Compensation & Benefits Administration',
+        'Strategic Human Resource Development'
+      ]
+    },
+    finance: {
+      title: 'Finance',
+      courses: [
+        'Corporate Valuation & Financial Modeling',
+        'Investment Analysis & Portfolio Management',
+        'Risk Management & Derivatives'
+      ]
+    },
+    accounting: {
+      title: 'Accounting',
+      courses: [
+        'Advanced Financial & Corporate Accounting',
+        'Auditing & Assurance Standards',
+        'Taxation & Managerial Cost Control'
+      ]
+    },
+    scm: {
+      title: 'Supply Chain Management',
+      courses: [
+        'Logistics, Procurement & Inventory Control',
+        'Supply Chain Analytics & Network Design',
+        'Operations & Quality Management'
+      ]
+    },
+    islamic: {
+      title: 'Islamic Banking and Finance',
+      courses: [
+        'Principles & Products of Islamic Banking',
+        'Takaful & Islamic Capital Markets',
+        'Shariah Governance & Islamic Financial Contracts'
+      ]
+    },
+    healthcare: {
+      title: 'Health Care & Hospital Management',
+      courses: [
+        'Hospital Operations & Patient Care Systems',
+        'Healthcare Quality, Safety & Accreditation',
+        'Health Economics & Facility Management'
+      ]
+    },
+    marketing: {
+      title: 'Marketing',
+      bba25: [
+        'Marketing Research',
+        'Consumer Behavior',
+        'Integrated Marketing Communications'
+      ],
+      defaultMba: [
+        'Digital Marketing',
+        'Brand & Product Strategy',
+        'Consumer Insights & Marketing Analytics'
+      ]
+    }
+  };
+
+  function switchProgram(progKey) {
+    document.querySelectorAll('.tab-btn').forEach(btn => {
+      btn.classList.toggle('active', btn.dataset.program === progKey);
+    });
+
+    document.querySelectorAll('.program-panel').forEach(panel => {
+      panel.classList.remove('active');
+    });
+
+    const targetPanel = document.getElementById('panel-' + progKey);
+    if (targetPanel) {
+      targetPanel.classList.add('active');
+    }
+
+    const meta = PROGRAM_META[progKey];
+    if (meta) {
+      document.getElementById('stickyProgramName').textContent = meta.name;
+      document.getElementById('stickyProgramMeta').textContent = meta.meta;
+    }
+  }
+
+  function toggleTranscriptNote() {
+    const box = document.getElementById('transcriptNoteBox');
+    if (box) {
+      box.classList.toggle('open');
+    }
+  }
+
+  function toggleTrack(programKey, trackKey, clickedBtn) {
+    const panel = document.getElementById('track-panel-' + programKey);
+    const scopeContainer = clickedBtn.parentElement;
+    const wasActive = clickedBtn.classList.contains('active');
+
+    scopeContainer.querySelectorAll('.track-chip').forEach(chip => {
+      chip.classList.remove('active');
+    });
+
+    if (wasActive) {
+      panel.classList.remove('open');
+      panel.innerHTML = '';
+      return;
+    }
+
+    clickedBtn.classList.add('active');
+    const track = TRACK_DATA[trackKey];
+    if (!track) return;
+
+    let items = [];
+    if (trackKey === 'ai') {
+      items = programKey === 'mba20' ? track.mba20 : track.mba15;
+    } else if (trackKey === 'marketing') {
+      items = programKey === 'bba25' ? track.bba25 : track.defaultMba;
+    } else {
+      items = track.courses || [];
+    }
+
+    panel.innerHTML = `
+      <h4>${track.title}</h4>
+      <ul>${items.map(c => `<li>${c}</li>`).join('')}</ul>
+    `;
+    panel.classList.add('open');
+  }
+</script>
 </body>
 </html>
